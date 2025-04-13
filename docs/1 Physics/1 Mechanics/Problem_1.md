@@ -1,7 +1,5 @@
 # Problem 1
 
----
-
 ## **Investigating the Range as a Function of the Angle of Projection**
 
 ### **1. Theoretical Foundation**
@@ -45,7 +43,7 @@ This formula shows:
 
 ---
 
-### **2.📊 Analysis of the Range**
+### **2. Analysis of the Range**
 
 The range of a projectile depends on several factors:
 
@@ -66,8 +64,6 @@ The range of a projectile depends on several factors:
 
 - **Gravitational Acceleration $ ( g )$**:  
   A higher gravitational force reduces the range. For example, under stronger gravity (like on Jupiter), the same launch would travel a shorter distance.
-
----
 
 To visualize these effects, I wrote a Python script that:
 
@@ -121,8 +117,6 @@ Key features:
 This visualization clearly shows how the peak and shape of the range curve change based on launch speed and gravitational acceleration.
 
 A basic implementation using Matplotlib and NumPy is provided below.
-
----
 
 ```python
 import numpy as np
