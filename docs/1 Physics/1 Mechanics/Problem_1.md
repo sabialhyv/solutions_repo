@@ -129,20 +129,31 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Constants
-g = 9.81  # gravitational acceleration (m/s^2)
-v0_values = [10, 20, 30]  # initial velocities in m/s
-angles = np.linspace(0, 90, 500)  # degrees
+g = 9.8  # Gravitational acceleration (m/s^2)
 
+# Function to calculate range for given initial velocity and angle
+def calculate_range(v0, angle_deg):
+    angle_rad = np.radians(angle_deg)  # Convert angle to radians
+    R = (v0**2 * np.sin(2 * angle_rad)) / g  # Range formula
+    return R
+
+# Initial velocities to test (m/s)
+v0_values = [10, 20, 30, 40]
+
+# Angles from 0° to 90°
+angles = np.linspace(0, 90, 500)
+
+# Plot range vs angle for each initial velocity
 plt.figure(figsize=(10, 6))
 
 for v0 in v0_values:
-    theta_rad = np.radians(angles)
-    R = (v0 ** 2) * np.sin(2 * theta_rad) / g
-    plt.plot(angles, R, label=f'v0 = {v0} m/s')
+    ranges = [calculate_range(v0, angle) for angle in angles]
+    plt.plot(angles, ranges, label=f"v0 = {v0} m/s")
 
-plt.title('Range vs Angle of Projection')
-plt.xlabel('Angle (degrees)')
-plt.ylabel('Range (meters)')
+# Labeling the plot
+plt.title("Range vs Angle of Projection")
+plt.xlabel("Angle of Projection (degrees)")
+plt.ylabel("Range (meters)")
 plt.legend()
 plt.grid(True)
 plt.show()
@@ -152,35 +163,12 @@ plt.show()
 
 ### **5. Limitations and Improvements**
 
+While this project captures the essential behavior of projectile motion, it doesn't account for:
+
 - Assumes no air resistance (idealized).
 - Assumes flat terrain.
 - Wind, spin, and shape of the projectile can significantly affect the real path.
 - In real-world applications, numerical simulations or empirical data are needed.
-
----
-
-Elbette! Aşağıda ödevini daha kapsamlı, akademik tarza uygun ama hâlâ sade bir İngilizce ile genişlettim. Her bölümü detaylandırdım, hem teorik hem de pratik yönlerini vurguladım. Sonuna kadar okuyup eksik veya fazlalık hissedersen birlikte düzenleyebiliriz.
-
----
-
-## 📘 **Investigating the Range as a Function of the Angle of Projection**
-
-
-
-### 5. Implementation
-
-
-
----
-
-### 6. Limitations and Further Work
-
-While this project captures the essential behavior of projectile motion, it doesn't account for:
-
-- Air resistance
-- Wind or weather effects
-- Rotating projectiles (e.g., a spinning ball)
-- Launch from elevated platforms
 
 In future versions, the model could be extended with numerical simulation using tools like Euler's method or integrating drag forces. Additionally, a 3D version could simulate real terrain or moving targets.
 
@@ -190,6 +178,3 @@ In future versions, the model could be extended with numerical simulation using 
 
 This project offers both theoretical and visual insight into how the angle of projection affects the range of a projectile. Using fundamental equations of motion and simple Python code, we can clearly observe the mathematical beauty and real-world relevance of projectile motion.
 
----
-
-İstersen bu ödevi bir `.md`, `.pdf`, `.docx` veya Jupyter Notebook dosyası olarak sana hazırlayıp verebilirim. Ayrıca Türkçe özetini de çıkarabilirim. Hangisini istersin?
