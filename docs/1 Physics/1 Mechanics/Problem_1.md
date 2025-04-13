@@ -1,49 +1,41 @@
 # Problem 1
 
-## **Investigating the Range as a Function of the Angle of Projection**
+## Investigating the Range as a Function of the Angle of Projection
 
-### **1. Theoretical Foundation**
+### 1. Theoretical Foundation
 
 Projectile motion describes the motion of an object launched into the air under the influence of gravity, assuming no air resistance. The path followed is a parabola.
 
-Let’s consider an object projected with initial velocity $ v_0 $ at an angle $ \theta $ from the horizontal:
+Let’s consider an object projected with initial velocity \( v_0 \) at an angle \( \theta \) from the horizontal:
 
 - Horizontal motion:
-  $$ x(t) = v_0 \cos(\theta) \cdot t $$
+  \[ x(t) = v_0 \cos(\theta) \cdot t \]
 - Vertical motion:
-  $$ y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$
+  \[ y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2 \]
 
 Where:
 
-- $ v_0 $ is the initial velocity,
-- $ \theta $ is the angle of projection,
-- $ g $ is gravitational acceleration (9.8 m/s²),
-- $ t $ is time.
+- \( v_0 \) is the initial velocity,
+- \( \theta \) is the angle of projection,
+- \( g \) is gravitational acceleration (9.8 m/s\(^2\)),
+- \( t \) is time.
 
-The **range** $ R $ of the projectile is the horizontal distance it travels before hitting the ground again. When launched from ground level and landing at the same height, the total time of flight is:
+The **range** \( R \) of the projectile is the horizontal distance it travels before hitting the ground again. When launched from ground level and landing at the same height, the total time of flight is:
 
-$$
-T = \frac{2v_0 \sin(\theta)}{g}
-$$
+\[ T = \frac{2v_0 \sin(\theta)}{g} \]
 
 Plugging this into the horizontal equation, we get the **range formula**:
 
-$$
-R = \frac{v_0^2 \sin(2\theta)}{g}
-$$
+\[ R = \frac{v_0^2 \sin(2\theta)}{g} \]
 
 This formula shows:
 
-- The range is maximum when $ \sin(2\theta) = 1 $, which occurs at $ \theta = 45^\circ $.
-- For every angle $ \theta $, there is a complementary angle $ 90^\circ - \theta $ that produces the same range.
+- The range is maximum when \( \sin(2\theta) = 1 \), which occurs at \( \theta = 45^\circ \).
+- For every angle \( \theta \), there is a complementary angle \( 90^\circ - \theta \) that produces the same range.
 
----
+**Important**: The range is maximum when \( \sin(2\theta) = 1 \) \(\rightarrow\) \( \theta = 45^\circ \)
 
-📌 **Important**: The range is maximum when $ \sin(2\theta) = 1 $ → $ \theta = 45^\circ $
-
----
-
-### **2. Analysis of the Range**
+### 2. Analysis of the Range
 
 The range of a projectile depends on several factors:
 
@@ -53,29 +45,25 @@ The range of a projectile depends on several factors:
   - At **0°** or **90°**, the range is **zero**.
   - **Maximum range** occurs at **45°**.
 
-- **Initial Velocity $(v_0) $**:  
+- **Initial Velocity \(v_0\)**:  
    The range is proportional to the square of the initial speed:
 
-  $$
-  R \propto v_0^2
-  $$
+  \[ R \propto v_0^2 \]
 
   Doubling the speed results in **four times** the range.
 
-- **Gravitational Acceleration $ ( g )$**:  
+- **Gravitational Acceleration \( g \)**:  
   A higher gravitational force reduces the range. For example, under stronger gravity (like on Jupiter), the same launch would travel a shorter distance.
 
 To visualize these effects, I wrote a Python script that:
 
 - Simulates projectile motion across angles from 0° to 90°
-- Allows adjustment of $ v_0 $ and $ g $
+- Allows adjustment of \( v_0 \) and \( g \)
 - Plots **Range vs. Angle** for different values of initial velocity
 
 The resulting graph confirms theoretical predictions: a **symmetric curve peaking at 45°**, clearly showing how both angle and velocity influence range.
 
----
-
-### **3. Practical Applications**
+### 3. Practical Applications
 
 The ideal model described above assumes:
 
@@ -93,18 +81,14 @@ In real-world situations, these assumptions rarely hold. For example:
 These real-world factors can be addressed by more complex models, such as:
 
 - **Drag force**:  
-  $$
-  F_d = \frac{1}{2} C_d \rho A v^2
-  $$  
-  where $ C_d $ is the drag coefficient, $ \rho $ is the air density, $ A $ is the cross-sectional area, and $ v $ is the velocity.
+  \[ F_d = \frac{1}{2} C_d \rho A v^2 \]  
+  where \( C_d \) is the drag coefficient, \( \rho \) is the air density, \( A \) is the cross-sectional area, and \( v \) is the velocity.
 
 - **Numerical methods** to approximate motion, especially when analytical solutions are not feasible.
 
 Despite these complexities, the basic idealized model remains a powerful starting point for understanding projectile motion, providing valuable insights into both simple and advanced systems.
 
----
-
-### **4. Implementation (Python Script)**
+### 4. Implementation (Python Script)
 
 The simulation was implemented using Python and Matplotlib. The script computes the projectile's range over angles from 0° to 90° and generates a visual plot to illustrate the results.
 
@@ -122,29 +106,22 @@ A basic implementation using Matplotlib and NumPy is provided below.
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Constants
 g = 9.8  # Gravitational acceleration (m/s^2)
 
-# Function to calculate range for given initial velocity and angle
 def calculate_range(v0, angle_deg):
-    angle_rad = np.radians(angle_deg)  # Convert angle to radians
-    R = (v0**2 * np.sin(2 * angle_rad)) / g  # Range formula
+    angle_rad = np.radians(angle_deg)
+    R = (v0**2 * np.sin(2 * angle_rad)) / g
     return R
 
-# Initial velocities to test (m/s)
 v0_values = [10, 20, 30, 40]
-
-# Angles from 0° to 90°
 angles = np.linspace(0, 90, 500)
 
-# Plot range vs angle for each initial velocity
 plt.figure(figsize=(10, 6))
 
 for v0 in v0_values:
     ranges = [calculate_range(v0, angle) for angle in angles]
     plt.plot(angles, ranges, label=f"v0 = {v0} m/s")
 
-# Labeling the plot
 plt.title("Range vs Angle of Projection")
 plt.xlabel("Angle of Projection (degrees)")
 plt.ylabel("Range (meters)")
@@ -153,9 +130,7 @@ plt.grid(True)
 plt.show()
 ```
 
----
-
-### **5. Limitations and Improvements**
+### 5. Limitations and Improvements
 
 While this project captures the essential behavior of projectile motion, it doesn't account for:
 
@@ -165,8 +140,6 @@ While this project captures the essential behavior of projectile motion, it does
 - In real-world applications, numerical simulations or empirical data are needed.
 
 In future versions, the model could be extended with numerical simulation using tools like Euler's method or integrating drag forces. Additionally, a 3D version could simulate real terrain or moving targets.
-
----
 
 ### Conclusion
 
