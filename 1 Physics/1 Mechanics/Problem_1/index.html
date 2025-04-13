@@ -60,14 +60,6 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#5-limitations-and-improvements">5. Limitations and Improvements</a>
 </li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#investigating-the-range-as-a-function-of-the-angle-of-projection_1">📘 Investigating the Range as a Function of the Angle of Projection</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#5-implementation">5. Implementation</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#6-limitations-and-further-work">6. Limitations and Further Work</a>
-</li>
 <li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a>
 </li>
 </ul>
@@ -309,52 +301,48 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 import matplotlib.pyplot as plt
 
 # Constants
-g = 9.81  # gravitational acceleration (m/s^2)
-v0_values = [10, 20, 30]  # initial velocities in m/s
-angles = np.linspace(0, 90, 500)  # degrees
+g = 9.8  # Gravitational acceleration (m/s^2)
 
+# Function to calculate range for given initial velocity and angle
+def calculate_range(v0, angle_deg):
+    angle_rad = np.radians(angle_deg)  # Convert angle to radians
+    R = (v0**2 * np.sin(2 * angle_rad)) / g  # Range formula
+    return R
+
+# Initial velocities to test (m/s)
+v0_values = [10, 20, 30, 40]
+
+# Angles from 0° to 90°
+angles = np.linspace(0, 90, 500)
+
+# Plot range vs angle for each initial velocity
 plt.figure(figsize=(10, 6))
 
 for v0 in v0_values:
-    theta_rad = np.radians(angles)
-    R = (v0 ** 2) * np.sin(2 * theta_rad) / g
-    plt.plot(angles, R, label=f'v0 = {v0} m/s')
+    ranges = [calculate_range(v0, angle) for angle in angles]
+    plt.plot(angles, ranges, label=f"v0 = {v0} m/s")
 
-plt.title('Range vs Angle of Projection')
-plt.xlabel('Angle (degrees)')
-plt.ylabel('Range (meters)')
+# Labeling the plot
+plt.title("Range vs Angle of Projection")
+plt.xlabel("Angle of Projection (degrees)")
+plt.ylabel("Range (meters)")
 plt.legend()
 plt.grid(True)
 plt.show()
 </code></pre>
 <hr/>
 <h3 id="5-limitations-and-improvements"><strong>5. Limitations and Improvements</strong></h3>
+<p>While this project captures the essential behavior of projectile motion, it doesn't account for:</p>
 <ul>
 <li>Assumes no air resistance (idealized).</li>
 <li>Assumes flat terrain.</li>
 <li>Wind, spin, and shape of the projectile can significantly affect the real path.</li>
 <li>In real-world applications, numerical simulations or empirical data are needed.</li>
 </ul>
-<hr/>
-<p>Elbette! Aşağıda ödevini daha kapsamlı, akademik tarza uygun ama hâlâ sade bir İngilizce ile genişlettim. Her bölümü detaylandırdım, hem teorik hem de pratik yönlerini vurguladım. Sonuna kadar okuyup eksik veya fazlalık hissedersen birlikte düzenleyebiliriz.</p>
-<hr/>
-<h2 id="investigating-the-range-as-a-function-of-the-angle-of-projection_1">📘 <strong>Investigating the Range as a Function of the Angle of Projection</strong></h2>
-<h3 id="5-implementation">5. Implementation</h3>
-<hr/>
-<h3 id="6-limitations-and-further-work">6. Limitations and Further Work</h3>
-<p>While this project captures the essential behavior of projectile motion, it doesn't account for:</p>
-<ul>
-<li>Air resistance</li>
-<li>Wind or weather effects</li>
-<li>Rotating projectiles (e.g., a spinning ball)</li>
-<li>Launch from elevated platforms</li>
-</ul>
 <p>In future versions, the model could be extended with numerical simulation using tools like Euler's method or integrating drag forces. Additionally, a 3D version could simulate real terrain or moving targets.</p>
 <hr/>
 <h3 id="conclusion">Conclusion</h3>
 <p>This project offers both theoretical and visual insight into how the angle of projection affects the range of a projectile. Using fundamental equations of motion and simple Python code, we can clearly observe the mathematical beauty and real-world relevance of projectile motion.</p>
-<hr/>
-<p>İstersen bu ödevi bir <code>.md</code>, <code>.pdf</code>, <code>.docx</code> veya Jupyter Notebook dosyası olarak sana hazırlayıp verebilirim. Ayrıca Türkçe özetini de çıkarabilirim. Hangisini istersin?</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
