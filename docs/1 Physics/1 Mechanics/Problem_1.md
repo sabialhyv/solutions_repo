@@ -1,5 +1,4 @@
 # Problem 1
-Harika, ödev konun oldukça ilgi çekici ve fizik açısından da önemli bir alanı kapsıyor. Aşağıda ödevini İngilizce olarak sana hazırladım. Ardından da Türkçe açıklamalarını yapacağım. İlk olarak İngilizce kısmı:
 
 ---
 
