@@ -9,9 +9,9 @@ Projectile motion describes the motion of an object launched into the air under 
 Let’s consider an object projected with initial velocity \( v_0 \) at an angle \( \theta \) from the horizontal:
 
 - Horizontal motion:
-  \[ x(t) = v_0 \cos(\theta) \cdot t \]
+  $$ x(t) = v_0 \cos(\theta) \cdot t $$
 - Vertical motion:
-  \[ y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2 \]
+  $$ y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2 $$
 
 Where:
 
@@ -22,11 +22,11 @@ Where:
 
 The **range** \( R \) of the projectile is the horizontal distance it travels before hitting the ground again. When launched from ground level and landing at the same height, the total time of flight is:
 
-\[ T = \frac{2v_0 \sin(\theta)}{g} \]
+$$ T = \frac{2v_0 \sin(\theta)}{g} $$
 
 Plugging this into the horizontal equation, we get the **range formula**:
 
-\[ R = \frac{v_0^2 \sin(2\theta)}{g} \]
+$$ R = \frac{v_0^2 \sin(2\theta)}{g} $$
 
 This formula shows:
 
@@ -48,7 +48,7 @@ The range of a projectile depends on several factors:
 - **Initial Velocity \(v_0\)**:  
    The range is proportional to the square of the initial speed:
 
-  \[ R \propto v_0^2 \]
+  $$ R \propto v_0^2 $$
 
   Doubling the speed results in **four times** the range.
 
@@ -81,7 +81,7 @@ In real-world situations, these assumptions rarely hold. For example:
 These real-world factors can be addressed by more complex models, such as:
 
 - **Drag force**:  
-  \[ F_d = \frac{1}{2} C_d \rho A v^2 \]  
+  $$ F_d = \frac{1}{2} C_d \rho A v^2 $$  
   where \( C_d \) is the drag coefficient, \( \rho \) is the air density, \( A \) is the cross-sectional area, and \( v \) is the velocity.
 
 - **Numerical methods** to approximate motion, especially when analytical solutions are not feasible.
