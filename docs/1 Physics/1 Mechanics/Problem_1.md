@@ -32,6 +32,7 @@ $$ T = \frac{2v_0 \sin(\theta)}{g} $$
 
 
 So, in projectile motion:
+
 - t → any time during the motion (like “at 2 seconds”)
 
 -	T → total time the object is in the air (from launch to landing)
