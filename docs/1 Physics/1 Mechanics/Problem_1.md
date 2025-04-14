@@ -24,6 +24,8 @@ The **range** \( R \) of the projectile is the horizontal distance it travels be
 
 $$ T = \frac{2v_0 \sin(\theta)}{g} $$
 
+
+
 💡 Why Capital T?
 -	Capital **T** is conventionally used to represent a total or final time — for example, the entire duration from launch to landing.
 -	Lowercase **t** usually represents time as a variable, like time at any given moment during the motion.
@@ -31,20 +33,18 @@ So, in projectile motion:
 -	t → any time during the motion (like “at 2 seconds”)
 -	T → total time the object is in the air (from launch to landing)
 
----
-
 Example:
-•	The vertical position:
-y(t)=v0sin⁡(θ)⋅t−12gt2y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2}gt^2 
-(Here tt is changing continuously)
-•	But to find when the projectile lands, we solve for the total time → that’s when we use TT:
-T=2v0sin⁡(θ)gT = \frac{2v_0 \sin(\theta)}{g} 
----
+- The vertical position:
+$$ y(t)=v0sin⁡(θ)⋅t−12gt2y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2}gt^2  $$
+(Here t is changing continuously)
+
+- But to find when the projectile lands, we solve for the total time → that’s when we use T:
+$$ T=2v0sin⁡(θ)gT = \frac{2v_0 \sin(\theta)}{g} $$
+
 Summary:
 Symbol	Meaning
-tt	Any time during motion
-TT	Total time of flight
-If you prefer to keep it lowercase for consistency, that's okay too — just be clear about what it represents. But using capital TT is quite common and makes the meaning clearer in scientific writing.
+**t**	- Any time during motion
+**T**	- Total time of flight
 
 
 Plugging this into the horizontal equation, we get the **range formula**:
