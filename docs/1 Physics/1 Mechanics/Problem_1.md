@@ -15,10 +15,10 @@ Let’s consider an object projected with initial velocity \( v_0 \) at an angle
 
 Where:
 
-- \( v_0 \) is the initial velocity,
-- \( \theta \) is the angle of projection,
-- \( g \) is gravitational acceleration (9.8 m/s\(^2\)),
-- \( t \) is time.
+- \( v_0 \) - is the initial velocity,
+- \( \theta \) - is the angle of projection,
+- \( g \) - is gravitational acceleration (9.8 m/s\(^2\)),
+- \( t \) - is time.
 
 The **range** \( R \) of the projectile is the horizontal distance it travels before hitting the ground again. When launched from ground level and landing at the same height, the total time of flight is:
 
@@ -27,23 +27,28 @@ $$ T = \frac{2v_0 \sin(\theta)}{g} $$
 
 
 #### 💡Why Capital T?
+
 - Capital **T** is conventionally used to represent a total or final time — for example, the entire duration from launch to landing.
 -	Lowercase **t** usually represents time as a variable, like time at any given moment during the motion.
 
 
 So, in projectile motion:
-- 	t → any time during the motion (like “at 2 seconds”)
--	  T → total time the object is in the air (from launch to landing)
+- t → any time during the motion (like “at 2 seconds”)
+-	T → total time the object is in the air (from launch to landing)
+
 
 Example:
 - The vertical position:
+
 $$ y(t)=v0sin⁡(θ)⋅t−12gt2y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2}gt^2  $$
 (Here t is changing continuously)
 
 - But to find when the projectile lands, we solve for the total time → that’s when we use T:
+
 $$ T=2v0sin⁡(θ)gT = \frac{2v_0 \sin(\theta)}{g} $$
 
 Summary:
+
 Symbol	Meaning
 **t**	- Any time during motion
 **T**	- Total time of flight
