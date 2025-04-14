@@ -71,14 +71,12 @@ This formula shows:
 
 The range of a projectile depends on several factors:
 
-- **Angle of Projection**:  
-  The range increases as the angle rises from 0° to 45°, reaching a maximum at 45°, and then decreases symmetrically up to 90°.
+- **Angle of Projection**: The range increases as the angle rises from 0° to 45°, reaching a maximum at 45°, and then decreases symmetrically up to 90°.
 
   - At **0°** or **90°**, the range is **zero**.
   - **Maximum range** occurs at **45°**.
 
-- **Initial Velocity \(v_0\)**:  
-   The range is proportional to the square of the initial speed:
+- **Initial Velocity \(v_0\)**: The range is proportional to the square of the initial speed:
 
   $$ R \propto v_0^2 $$
 
