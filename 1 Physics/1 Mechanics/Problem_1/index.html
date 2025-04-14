@@ -190,8 +190,8 @@
 <h1 id="problem-1">Problem 1</h1>
 <h2 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h2>
 <h3 id="1-theoretical-foundation">1. Theoretical Foundation</h3>
-<p>Projectile motion describes the motion of an object launched into the air under the influence of gravity, assuming no air resistance. The path followed is a parabola.</p>
-<p>Let’s consider an object projected with initial velocity <span class="arithmatex">\( v_0 \)</span> at an angle <span class="arithmatex">\( \theta \)</span> from the horizontal:</p>
+<p>Projectile motion describes the motion of an object launched into the air under the influence of gravity, assuming no air resistance. The path followed is a parabola.
+Let’s consider an object projected with initial velocity <span class="arithmatex">\( v_0 \)</span> at an angle <span class="arithmatex">\( \theta \)</span> from the horizontal:</p>
 <ul>
 <li>Horizontal motion:
   $$ x(t) = v_0 \cos(\theta) \cdot t $$</li>
@@ -246,6 +246,7 @@
 <li>For every angle <span class="arithmatex">\( \theta \)</span>, there is a complementary angle <span class="arithmatex">\( 90^\circ - \theta \)</span> that produces the same range.</li>
 </ul>
 <p><strong>Important</strong>: The range is maximum when <span class="arithmatex">\( \sin(2\theta) = 1 \)</span> <span class="arithmatex">\(\rightarrow\)</span> <span class="arithmatex">\( \theta = 45^\circ \)</span></p>
+<hr/>
 <h3 id="2-analysis-of-the-range">2. Analysis of the Range</h3>
 <p>The range of a projectile depends on several factors:</p>
 <ul>
@@ -274,6 +275,7 @@
 <li>Plots <strong>Range vs. Angle</strong> for different values of initial velocity</li>
 </ul>
 <p>The resulting graph confirms theoretical predictions: a <strong>symmetric curve peaking at 45°</strong>, clearly showing how both angle and velocity influence range.</p>
+<hr/>
 <h3 id="3-practical-applications">3. Practical Applications</h3>
 <p>The ideal model described above assumes:</p>
 <ul>
@@ -300,6 +302,7 @@
 </li>
 </ul>
 <p>Despite these complexities, the basic idealized model remains a powerful starting point for understanding projectile motion, providing valuable insights into both simple and advanced systems.</p>
+<hr/>
 <h3 id="4-implementation-python-script">4. Implementation (Python Script)</h3>
 <p>The simulation was implemented using Python and Matplotlib. The script computes the projectile's range over angles from 0° to 90° and generates a visual plot to illustrate the results.</p>
 <p>Key features:</p>
@@ -371,6 +374,7 @@ plt.show()
 </code></pre>
 <p><img alt="alt text" src="../image.png"/>
 <img alt="alt text" src="../image-4.png"/></p>
+<hr/>
 <h3 id="5-limitations-and-improvements">5. Limitations and Improvements</h3>
 <p>While this project captures the essential behavior of projectile motion, it doesn't account for:</p>
 <ul>
@@ -380,6 +384,7 @@ plt.show()
 <li>In real-world applications, numerical simulations or empirical data are needed.</li>
 </ul>
 <p>In future versions, the model could be extended with numerical simulation using tools like Euler's method or integrating drag forces. Additionally, a 3D version could simulate real terrain or moving targets.</p>
+<hr/>
 <h3 id="conclusion">Conclusion</h3>
 <p>This project offers both theoretical and visual insight into how the angle of projection affects the range of a projectile. Using fundamental equations of motion and simple Python code, we can clearly observe the mathematical beauty and real-world relevance of projectile motion.</p>
 </div>

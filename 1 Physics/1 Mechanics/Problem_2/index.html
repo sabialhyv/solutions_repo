@@ -218,12 +218,14 @@
 <div class="arithmatex">\[
 \frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2 \sin(\theta) = A \cos(\omega t)
 \]</div>
-<p>Where:
-- <span class="arithmatex">\(\theta(t)\)</span>: Angular displacement at time <span class="arithmatex">\(t\)</span>
-- <span class="arithmatex">\(\gamma\)</span>: Damping coefficient (e.g., due to air resistance or friction)
-- <span class="arithmatex">\(\omega_0 = \sqrt{g/L}\)</span>: Natural frequency of the pendulum, depending on gravity and pendulum length
-- <span class="arithmatex">\(A\)</span>: Amplitude of the driving force
-- <span class="arithmatex">\(\omega\)</span>: Frequency of the driving force</p>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(\theta(t)\)</span>: Angular displacement at time <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(\gamma\)</span>: Damping coefficient (e.g., due to air esistance or friction)</li>
+<li><span class="arithmatex">\(\omega_0 = \sqrt{g/L}\)</span>: Natural frequency of the pendulum, depending on gravity and pendulum length</li>
+<li><span class="arithmatex">\(A\)</span>: Amplitude of the driving force</li>
+<li><span class="arithmatex">\(\omega\)</span>: Frequency of the driving force</li>
+</ul>
 <p>This equation is nonlinear because of the <span class="arithmatex">\(\sin(\theta)\)</span> term, making analytical solutions difficult or impossible for most cases.</p>
 <hr/>
 <h3 id="small-angle-approximation">Small-Angle Approximation</h3>
@@ -235,7 +237,10 @@
 <div class="arithmatex">\[
 \theta(t) = \theta_0 \cos(\omega t - \phi)
 \]</div>
-<p>Where <span class="arithmatex">\(\theta_0\)</span> is the amplitude and <span class="arithmatex">\(\phi\)</span> is the phase shift. This linear model helps us understand the resonance condition when <span class="arithmatex">\(\omega \approx \omega_0\)</span>, where the system absorbs the most energy and the oscillations grow in amplitude.</p>
+<p>Where :
+- <span class="arithmatex">\(\theta_0\)</span> is the amplitude 
+- <span class="arithmatex">\(\phi\)</span> is the phase shift. </p>
+<p>This linear model helps us understand the resonance condition when <span class="arithmatex">\(\omega \approx \omega_0\)</span>, where the system absorbs the most energy and the oscillations grow in amplitude.</p>
 <hr/>
 <h3 id="beyond-small-angles-nonlinear-effects">⚠️ Beyond Small Angles: Nonlinear Effects</h3>
 <p>As the angle increases, the linear approximation fails. The full nonlinear system shows:
@@ -292,10 +297,12 @@
 <hr/>
 <h2 id="4-python-simulation-visualizations">4. Python Simulation &amp; Visualizations</h2>
 <p>We simulate the system using the <strong>Runge-Kutta 4th order method</strong> for accurate time-stepping of the nonlinear differential equation.</p>
-<p>📌 Included outputs:
-- Time evolution of <span class="arithmatex">\(\theta(t)\)</span>
-- Phase space: <span class="arithmatex">\(\omega\)</span> vs. <span class="arithmatex">\(\theta\)</span>
-- Poincaré section sampled every driving period</p>
+<p>📌 Included outputs:</p>
+<ul>
+<li>Time evolution of <span class="arithmatex">\(\theta(t)\)</span></li>
+<li>Phase space: <span class="arithmatex">\(\omega\)</span> vs. <span class="arithmatex">\(\theta\)</span></li>
+<li>Poincaré section sampled every driving period</li>
+</ul>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
