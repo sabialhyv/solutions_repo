@@ -49,7 +49,6 @@ $$ y(t)=v0sin⁡(θ)⋅t−12gt2y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2}gt^
 
 $$ T=2v0sin⁡(θ)gT = \frac{2v_0 \sin(\theta)}{g} $$
 
-Summary:
 
 Symbol	Meaning
 
