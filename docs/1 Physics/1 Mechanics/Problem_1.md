@@ -47,7 +47,8 @@ Summary:
 Symbol	Meaning
 **t**	- Any time during motion
 **T**	- Total time of flight
----
+
+
 Plugging this into the horizontal equation, we get the **range formula**:
 
 $$ R = \frac{v_0^2 \sin(2\theta)}{g} $$
