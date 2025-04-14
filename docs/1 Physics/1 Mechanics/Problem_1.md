@@ -129,6 +129,7 @@ plt.legend()
 plt.grid(True)
 plt.show()
 ```
+![alt text](image.png)
 
 ### 5. Limitations and Improvements
 
