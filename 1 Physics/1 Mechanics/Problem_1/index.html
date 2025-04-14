@@ -311,28 +311,62 @@ import matplotlib.pyplot as plt
 
 g = 9.8  # Gravitational acceleration (m/s^2)
 
-def calculate_range(v0, angle_deg):
+# Toggle this to switch between basic (False) and extended (True) mode
+extended = False
+
+# Basic version: no initial height
+def calculate_range_basic(v0, angle_deg):
     angle_rad = np.radians(angle_deg)
     R = (v0**2 * np.sin(2 * angle_rad)) / g
+    return R
+
+# Extended version: with initial height
+def calculate_range_extended(v0, angle_deg, y0):
+    angle_rad = np.radians(angle_deg)
+    vx = v0 * np.cos(angle_rad)
+    vy = v0 * np.sin(angle_rad)
+    discriminant = vy**2 + 2 * g * y0
+    if discriminant &lt; 0:
+        return 0
+    T = (vy + np.sqrt(discriminant)) / g
+    R = vx * T
     return R
 
 v0_values = [10, 20, 30, 40]
 angles = np.linspace(0, 90, 500)
 
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(12, 8))
 
-for v0 in v0_values:
-    ranges = [calculate_range(v0, angle) for angle in angles]
-    plt.plot(angles, ranges, label=f"v0 = {v0} m/s")
+if not extended:
+    # Basic version: Only velocity changes, height = 0
+    for v0 in v0_values:
+        ranges = [calculate_range_basic(v0, angle) for angle in angles]
+        plt.plot(angles, ranges, label=f"v0 = {v0} m/s")
+    plt.title("Range vs Angle of Projection (No Height)")
+else:
+    # Extended version: velocity + height combinations
+    heights = [0, 5, 10]
+    angles = np.linspace(1, 89, 500)
+    colors = ['blue', 'green', 'orange', 'red']
+    linestyles = ['-', '--', ':']
 
-plt.title("Range vs Angle of Projection")
+    for i, v0 in enumerate(v0_values):
+        for j, y0 in enumerate(heights):
+            ranges = [calculate_range_extended(v0, angle, y0) for angle in angles]
+            label = f"v0 = {v0} m/s, h = {y0} m"
+            plt.plot(angles, ranges, label=label, color=colors[i], linestyle=linestyles[j])
+    plt.title("Range vs Angle for Different Initial Velocities and Heights")
+
 plt.xlabel("Angle of Projection (degrees)")
 plt.ylabel("Range (meters)")
 plt.legend()
 plt.grid(True)
+plt.tight_layout()
 plt.show()
+
 </code></pre>
-<p><img alt="alt text" src="../image.png"/></p>
+<p><img alt="alt text" src="../image.png"/>
+<img alt="alt text" src="../image-4.png"/></p>
 <h3 id="5-limitations-and-improvements">5. Limitations and Improvements</h3>
 <p>While this project captures the essential behavior of projectile motion, it doesn't account for:</p>
 <ul>
