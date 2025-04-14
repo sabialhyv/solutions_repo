@@ -2,6 +2,8 @@
 
 ## Investigating the Range as a Function of the Angle of Projection
 
+---
+
 ### 1. Theoretical Foundation
 
 Projectile motion describes the motion of an object launched into the air under the influence of gravity, assuming no air resistance. The path followed is a parabola.
