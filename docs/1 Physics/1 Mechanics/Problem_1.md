@@ -24,8 +24,7 @@ The **range** \( R \) of the projectile is the horizontal distance it travels be
 
 $$ T = \frac{2v_0 \sin(\theta)}{g} $$
 
-
-
+---
 #### 💡Why Capital T?
 
 - Capital **T** is conventionally used to represent a total or final time — for example, the entire duration from launch to landing.
@@ -34,6 +33,7 @@ $$ T = \frac{2v_0 \sin(\theta)}{g} $$
 
 So, in projectile motion:
 - t → any time during the motion (like “at 2 seconds”)
+
 -	T → total time the object is in the air (from launch to landing)
 
 
@@ -50,10 +50,10 @@ $$ T=2v0sin⁡(θ)gT = \frac{2v_0 \sin(\theta)}{g} $$
 Summary:
 
 Symbol	Meaning
-**t**	- Any time during motion
-**T**	- Total time of flight
+- **t**	- Any time during motion
+- **T**	- Total time of flight
 
-
+---
 Plugging this into the horizontal equation, we get the **range formula**:
 
 $$ R = \frac{v_0^2 \sin(2\theta)}{g} $$
