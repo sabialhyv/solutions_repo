@@ -82,8 +82,7 @@ The range of a projectile depends on several factors:
 
   Doubling the speed results in **four times** the range.
 
-- **Gravitational Acceleration \( g \)**:  
-  A higher gravitational force reduces the range. For example, under stronger gravity (like on Jupiter), the same launch would travel a shorter distance.
+- **Gravitational Acceleration \( g \)**: A higher gravitational force reduces the range. For example, under stronger gravity (like on Jupiter), the same launch would travel a shorter distance.
 
 To visualize these effects, I wrote a Python script that:
 
