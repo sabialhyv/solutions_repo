@@ -16,7 +16,6 @@ $$
 
 Where:
 
-
 - \(\theta(t)\): Angular displacement at time \(t\)
 - \(\gamma\): Damping coefficient (e.g., due to air esistance or friction)
 - \(\omega_0 = \sqrt{g/L}\): Natural frequency of the pendulum, depending on gravity and pendulum length
@@ -43,7 +42,6 @@ $$
 
 Where :
 
-
 - \(\theta_0\) is the amplitude 
 - \(\phi\) is the phase shift. 
 
@@ -54,7 +52,6 @@ This linear model helps us understand the resonance condition when \(\omega \app
 ### ⚠️ Beyond Small Angles: Nonlinear Effects
 
 As the angle increases, the linear approximation fails. The full nonlinear system shows:
-
 
 - **Amplitude saturation**: Increasing drive no longer increases amplitude linearly.
 - **Bifurcations**: Small parameter changes can lead to dramatic changes in behavior.
@@ -79,7 +76,6 @@ We explore the effect of varying:
 - **Chaotic motion**: Aperiodic, sensitive to initial conditions, and unpredictable despite deterministic equations.
 
 Chaotic regimes can be diagnosed using:
-
 
 - **Phase space plots**: Reveal attractor shapes.
 - **Poincaré sections**: Discrete snapshots each drive cycle, showing the transition to chaos.
@@ -112,7 +108,6 @@ Chaotic regimes can be diagnosed using:
  We simulate the system using the **Runge-Kutta 4th order method** for accurate time-stepping of the nonlinear differential equation.
 
 📌 Included outputs:
-
 
 - Time evolution of \(\theta(t)\)
 - Phase space: \(\omega\) vs. \(\theta\)
