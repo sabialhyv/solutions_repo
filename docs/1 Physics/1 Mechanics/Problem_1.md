@@ -38,6 +38,7 @@ So, in projectile motion:
 
 
 Example:
+
 - The vertical position:
 
 $$ y(t)=v0sin⁡(θ)⋅t−12gt2y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2}gt^2  $$
@@ -50,8 +51,9 @@ $$ T=2v0sin⁡(θ)gT = \frac{2v_0 \sin(\theta)}{g} $$
 Summary:
 
 Symbol	Meaning
-- **t**	- Any time during motion
-- **T**	- Total time of flight
+
+-  **t**	- Any time during motion
+-  **T**	- Total time of flight
 
 ---
 Plugging this into the horizontal equation, we get the **range formula**:
