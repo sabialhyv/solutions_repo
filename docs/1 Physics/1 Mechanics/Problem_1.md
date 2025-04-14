@@ -5,7 +5,6 @@
 ### 1. Theoretical Foundation
 
 Projectile motion describes the motion of an object launched into the air under the influence of gravity, assuming no air resistance. The path followed is a parabola.
-
 Let’s consider an object projected with initial velocity \( v_0 \) at an angle \( \theta \) from the horizontal:
 
 - Horizontal motion:
@@ -67,6 +66,8 @@ This formula shows:
 
 **Important**: The range is maximum when \( \sin(2\theta) = 1 \) \(\rightarrow\) \( \theta = 45^\circ \)
 
+---
+
 ### 2. Analysis of the Range
 
 The range of a projectile depends on several factors:
@@ -92,6 +93,8 @@ To visualize these effects, I wrote a Python script that:
 
 The resulting graph confirms theoretical predictions: a **symmetric curve peaking at 45°**, clearly showing how both angle and velocity influence range.
 
+---
+
 ### 3. Practical Applications
 
 The ideal model described above assumes:
@@ -116,6 +119,8 @@ These real-world factors can be addressed by more complex models, such as:
 - **Numerical methods** to approximate motion, especially when analytical solutions are not feasible.
 
 Despite these complexities, the basic idealized model remains a powerful starting point for understanding projectile motion, providing valuable insights into both simple and advanced systems.
+
+---
 
 ### 4. Implementation (Python Script)
 
@@ -193,6 +198,9 @@ plt.show()
 ```
 ![alt text](image.png)
 ![alt text](image-4.png)
+
+---
+
 ### 5. Limitations and Improvements
 
 While this project captures the essential behavior of projectile motion, it doesn't account for:
@@ -203,6 +211,8 @@ While this project captures the essential behavior of projectile motion, it does
 - In real-world applications, numerical simulations or empirical data are needed.
 
 In future versions, the model could be extended with numerical simulation using tools like Euler's method or integrating drag forces. Additionally, a 3D version could simulate real terrain or moving targets.
+
+---
 
 ### Conclusion
 

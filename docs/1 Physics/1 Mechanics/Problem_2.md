@@ -2,7 +2,6 @@
 
 ##  Investigating the Dynamics of a Forced Damped Pendulum
 
-
 ---
 
 ## 1. Theoretical Foundation
@@ -16,8 +15,9 @@ $$
 $$
 
 Where:
+
 - \(\theta(t)\): Angular displacement at time \(t\)
-- \(\gamma\): Damping coefficient (e.g., due to air resistance or friction)
+- \(\gamma\): Damping coefficient (e.g., due to air esistance or friction)
 - \(\omega_0 = \sqrt{g/L}\): Natural frequency of the pendulum, depending on gravity and pendulum length
 - \(A\): Amplitude of the driving force
 - \(\omega\): Frequency of the driving force
@@ -40,7 +40,11 @@ $$
 \theta(t) = \theta_0 \cos(\omega t - \phi)
 $$
 
-Where \(\theta_0\) is the amplitude and \(\phi\) is the phase shift. This linear model helps us understand the resonance condition when \(\omega \approx \omega_0\), where the system absorbs the most energy and the oscillations grow in amplitude.
+Where :
+- \(\theta_0\) is the amplitude 
+- \(\phi\) is the phase shift. 
+
+This linear model helps us understand the resonance condition when \(\omega \approx \omega_0\), where the system absorbs the most energy and the oscillations grow in amplitude.
 
 ---
 
@@ -101,6 +105,7 @@ Chaotic regimes can be diagnosed using:
  We simulate the system using the **Runge-Kutta 4th order method** for accurate time-stepping of the nonlinear differential equation.
 
 📌 Included outputs:
+
 - Time evolution of \(\theta(t)\)
 - Phase space: \(\omega\) vs. \(\theta\)
 - Poincaré section sampled every driving period
