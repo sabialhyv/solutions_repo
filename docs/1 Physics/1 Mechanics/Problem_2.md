@@ -2,13 +2,6 @@
 
 ##  Investigating the Dynamics of a Forced Damped Pendulum
 
----
-
-###  Motivation
-
-The forced damped pendulum is a cornerstone example in the study of nonlinear dynamical systems. Unlike the simple pendulum, which follows predictable harmonic motion, the addition of **damping** and an **external periodic driving force** introduces nonlinearity that can lead to **complex behaviors**, including **resonance**, **quasiperiodicity**, and **chaos**.
-
-This system serves as a rich model for understanding a broad class of real-world phenomena. From **vibrating structures under wind loads** to **power grids subjected to variable input**, the mathematical principles underlying the forced damped pendulum apply across fields such as mechanical engineering, electrical circuits, climatology, and even neuroscience. Studying how its dynamics change with parameters like damping and external force helps us better predict, control, and optimize systems affected by oscillations and perturbations.
 
 ---
 
