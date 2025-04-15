@@ -172,6 +172,123 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<hr/>
+<h1 id="orbital-period-and-orbital-radius"><strong>Orbital Period and Orbital Radius</strong></h1>
+<h2 id="motivation"><strong>Motivation</strong></h2>
+<p>The relationship between the square of the orbital period and the cube of the orbital radius—known as <strong>Kepler’s Third Law</strong>—is a fundamental concept in celestial mechanics. It elegantly connects Newton’s Law of Universal Gravitation with real-world applications, including predicting satellite behavior, understanding planetary motions, and estimating masses of celestial bodies. By studying this relationship, we gain deep insights into gravitational systems from artificial satellites to distant exoplanets.</p>
+<hr/>
+<h2 id="1-theoretical-derivation"><strong>1. Theoretical Derivation</strong></h2>
+<p>We start by considering a small body (like a satellite or planet) in <strong>uniform circular motion</strong> around a much larger mass <span class="arithmatex">\( M \)</span>, such as a star or planet.</p>
+<h3 id="step-1-centripetal-force"><strong>Step 1: Centripetal Force</strong></h3>
+<p>For circular motion, the centripetal force is:</p>
+<div class="arithmatex">\[
+F_c = \frac{mv^2}{r}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\( m \)</span> is the mass of the orbiting body</li>
+<li><span class="arithmatex">\( v \)</span> is orbital speed</li>
+<li><span class="arithmatex">\( r \)</span> is the orbital radius</li>
+</ul>
+<h3 id="step-2-gravitational-force"><strong>Step 2: Gravitational Force</strong></h3>
+<p>According to Newton's law of gravitation:</p>
+<div class="arithmatex">\[
+F_g = \frac{G M m}{r^2}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\( G \)</span> is the gravitational constant</li>
+<li><span class="arithmatex">\( M \)</span> is the central mass</li>
+</ul>
+<h3 id="step-3-equating-the-forces"><strong>Step 3: Equating the Forces</strong></h3>
+<div class="arithmatex">\[
+\frac{mv^2}{r} = \frac{GMm}{r^2}
+\Rightarrow v^2 = \frac{GM}{r}
+\]</div>
+<h3 id="step-4-expressing-orbital-period"><strong>Step 4: Expressing Orbital Period</strong></h3>
+<p>The orbital period <span class="arithmatex">\( T \)</span> is:</p>
+<div class="arithmatex">\[
+T = \frac{2\pi r}{v}
+\Rightarrow T^2 = \left(\frac{2\pi r}{v}\right)^2 = \frac{4\pi^2 r^2}{v^2}
+\]</div>
+<p>Substitute <span class="arithmatex">\( v^2 = \frac{GM}{r} \)</span>:</p>
+<div class="arithmatex">\[
+T^2 = \frac{4\pi^2 r^3}{GM}
+\]</div>
+<hr/>
+<h2 id="2-implications-for-astronomy"><strong>2. Implications for Astronomy</strong></h2>
+<h3 id="keplers-third-law-simplified-form"><strong>Kepler’s Third Law (Simplified Form)</strong></h3>
+<div class="arithmatex">\[
+T^2 \propto r^3
+\]</div>
+<p>This equation shows that for any two bodies orbiting the same central mass, the ratio:</p>
+<div class="arithmatex">\[
+\frac{T_1^2}{r_1^3} = \frac{T_2^2}{r_2^3}
+\]</div>
+<p>is constant. This law helps us:</p>
+<ul>
+<li>Determine the <strong>mass of a central body</strong> using orbital data.</li>
+<li>Estimate <strong>distances</strong> of celestial objects when their period is known.</li>
+<li>Understand <strong>gravitational interactions</strong> across star systems and galaxies.</li>
+</ul>
+<hr/>
+<h2 id="3-real-world-examples"><strong>3. Real-World Examples</strong></h2>
+<h3 id="moons-orbit-around-earth"><strong>Moon’s Orbit Around Earth</strong></h3>
+<ul>
+<li>Orbital radius: <span class="arithmatex">\( r \approx 3.84 \times 10^8 \)</span> m  </li>
+<li>Orbital period: <span class="arithmatex">\( T \approx 27.3 \)</span> days</li>
+</ul>
+<p>You can use these values to verify:</p>
+<div class="arithmatex">\[
+T^2 \approx \frac{4\pi^2 r^3}{G M_{\text{Earth}}}
+\]</div>
+<h3 id="planets-in-the-solar-system"><strong>Planets in the Solar System</strong></h3>
+<p>For planets orbiting the Sun, plotting <span class="arithmatex">\( T^2 \)</span> vs <span class="arithmatex">\( r^3 \)</span> gives a straight line, verifying Kepler’s law. This helps calculate unknown planetary distances and supports heliocentric models.</p>
+<hr/>
+<h2 id="4-python-simulation-and-visualization"><strong>4. Python Simulation and Visualization</strong></h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.67430e-11  # gravitational constant (m^3 kg^-1 s^-2)
+M_sun = 1.989e30  # mass of the Sun (kg)
+
+# Radii in meters (approximate) and periods in seconds
+radii_km = np.array([57.9e6, 108.2e6, 149.6e6, 227.9e6, 778.6e6])  # Mercury to Jupiter in km
+radii = radii_km * 1e3  # convert to meters
+T = 2 * np.pi * np.sqrt(radii**3 / (G * M_sun))  # Orbital periods
+
+# T^2 and r^3
+T2 = T**2
+r3 = radii**3
+
+# Plotting
+plt.figure(figsize=(8, 6))
+plt.plot(r3, T2, 'o-', label='T² vs r³')
+plt.xlabel('Orbital Radius³ (m³)')
+plt.ylabel('Orbital Period² (s²)')
+plt.title('Kepler\'s Third Law: T² vs r³')
+plt.grid(True)
+plt.legend()
+plt.show()
+</code></pre>
+<p>This plot should show a linear relationship, confirming Kepler’s Third Law.</p>
+<hr/>
+<h2 id="5-extension-to-elliptical-orbits"><strong>5. Extension to Elliptical Orbits</strong></h2>
+<p>Kepler’s original third law applies to <strong>elliptical orbits</strong> as well:</p>
+<div class="arithmatex">\[
+T^2 \propto a^3
+\]</div>
+<p>Where <span class="arithmatex">\( a \)</span> is the <strong>semi-major axis</strong> of the ellipse. This is significant for:</p>
+<ul>
+<li>Understanding the motion of comets and asteroids.</li>
+<li>Analyzing binary star systems.</li>
+<li>Calculating satellite orbits (e.g., GPS satellites which follow slightly elliptical paths).</li>
+</ul>
+<hr/>
+<h2 id="conclusion"><strong>Conclusion</strong></h2>
+<p>The relationship between orbital period and orbital radius not only provides insights into the motion of celestial bodies but also enables accurate modeling and prediction in astronomy and space exploration. From verifying Newtonian physics to helping design satellite trajectories, Kepler’s Third Law remains an indispensable tool in our understanding of the universe.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
