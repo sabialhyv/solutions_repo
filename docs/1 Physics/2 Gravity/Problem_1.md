@@ -132,6 +132,8 @@ plt.legend()
 plt.show()
 ```
 
+![alt text](image.png)
+
 This plot should show a linear relationship, confirming Kepler’s Third Law.
 
 ---
