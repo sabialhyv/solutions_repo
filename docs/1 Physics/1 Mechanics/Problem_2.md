@@ -107,7 +107,6 @@ Chaotic regimes can be diagnosed using:
 
  We simulate the system using the **Runge-Kutta 4th order method** for accurate time-stepping of the nonlinear differential equation.
 
----
 
 📌 Included outputs:
 
