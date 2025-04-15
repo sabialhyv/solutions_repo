@@ -1,10 +1,6 @@
 # Problem 1
----
+
 # **Orbital Period and Orbital Radius**
-
-## **Motivation**
-
-The relationship between the square of the orbital period and the cube of the orbital radius—known as **Kepler’s Third Law**—is a fundamental concept in celestial mechanics. It elegantly connects Newton’s Law of Universal Gravitation with real-world applications, including predicting satellite behavior, understanding planetary motions, and estimating masses of celestial bodies. By studying this relationship, we gain deep insights into gravitational systems from artificial satellites to distant exoplanets.
 
 ---
 
