@@ -24,7 +24,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install mkdocs mkdocs-material mkdocs-macros-plugin pymdown-extensions mkdocs-mermaid2-plugin
-
       - name: Build documentation
         run: mkdocs build --site-dir site
 
@@ -32,6 +31,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          user_name: sabialhyv  # Senin GitHub kullanıcı adın
-          user_email: sabialhyv@gmail.com  # GitHub hesap e-postan
           publish_dir: ./site
