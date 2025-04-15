@@ -32,4 +32,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: sabialhyv  # Senin GitHub kullanıcı adın
+          user_email: sabialhyv@gmail.com  # GitHub hesap e-postan
           publish_dir: ./site
