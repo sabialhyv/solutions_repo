@@ -8,7 +8,7 @@
 
 We start by considering a small body (like a satellite or planet) in **uniform circular motion** around a much larger mass \( M \), such as a star or planet.
 
-### Centripetal Force**
+### Centripetal Force
 For circular motion, the centripetal force is:
 
 $$
@@ -21,7 +21,7 @@ Where:
 - \( v \) is orbital speed
 - \( r \) is the orbital radius
 
-### Gravitational Force**
+### Gravitational Force
 According to Newton's law of gravitation:
 
 $$
@@ -33,14 +33,14 @@ Where:
 - \( G \) is the gravitational constant
 - \( M \) is the central mass
 
-### Equating the Forces**
+### Equating the Forces
 
 $$
 \frac{mv^2}{r} = \frac{GMm}{r^2}
 \Rightarrow v^2 = \frac{GM}{r}
 $$
 
-### Expressing Orbital Period**
+### Expressing Orbital Period
 
 The orbital period \( T \) is:
 
