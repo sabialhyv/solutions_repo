@@ -136,7 +136,7 @@ plt.grid(True, linestyle='--', alpha=0.5)
 plt.tight_layout()
 plt.show()
 ```
-![alt text](image-1.png)
+![alt text](image-2.png)
 ---
 
 ## Third Cosmic Velocity Calculation
