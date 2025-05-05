@@ -175,32 +175,42 @@
 <h1 id="trajectories-of-a-freely-released-payload-near-earth">Trajectories of a Freely Released Payload Near Earth</h1>
 <hr/>
 <h2 id="motivation">Motivation</h2>
-<p>When a payload is released from a moving rocket near Earth, its subsequent <strong>trajectory</strong> is determined by its <strong>initial velocity</strong>, <strong>altitude</strong>, and <strong>direction</strong>. This problem is a compelling application of <strong>orbital mechanics</strong>, offering insights into various outcomes like:</p>
+<p>When a payload is released from a moving spacecraft near Earth, its subsequent trajectory is determined by its initial velocity, altitude, and direction. This problem is a compelling application of orbital mechanics, offering insights into various possible outcomes such as:</p>
 <ul>
-<li>Stable orbits (elliptical or circular)</li>
-<li>Reentry trajectories</li>
-<li>Escape trajectories (parabolic or hyperbolic)</li>
+<li>
+<p>Stable orbits (elliptical or circular)</p>
+</li>
+<li>
+<p>Reentry trajectories</p>
+</li>
+<li>
+<p>Escape trajectories (parabolic or hyperbolic)</p>
+</li>
 </ul>
-<p>Understanding these motions is crucial for real-world missions like <strong>satellite deployment</strong>, <strong>space probes</strong>, and <strong>reentry planning</strong>.</p>
+<p>Depending on the initial conditions, the payload may enter a closed orbit, crash back to Earth, or escape Earth’s gravitational field. Understanding these motions is crucial for real-world space missions like satellite deployment, orbital transfers, space probes, reentry planning, and escape maneuvers.</p>
 <hr/>
 <h2 id="theoretical-background">Theoretical Background</h2>
 <h3 id="newtons-law-of-universal-gravitation">Newton's Law of Universal Gravitation</h3>
+<p>The gravitational force acting on a payload of mass 𝑚 near Earth of mass 𝑀 is:</p>
 <div class="arithmatex">\[
 F = \frac{G M m}{r^2}
 \]</div>
 <p>Where:</p>
 <ul>
 <li><span class="arithmatex">\( F \)</span> is the gravitational force,</li>
-<li><span class="arithmatex">\( G = 6.674 \times 10^{-11} \, \text{Nm}^2/\text{kg}^2 \)</span>,</li>
+<li><span class="arithmatex">\( G = 6.674 \times 10^{-11}\, \text{Nm}^2/\text{kg}^2 \)</span>,</li>
 <li><span class="arithmatex">\( M \)</span> is Earth’s mass,</li>
 <li><span class="arithmatex">\( m \)</span> is the payload’s mass,</li>
 <li><span class="arithmatex">\( r \)</span> is the distance from Earth's center.</li>
 </ul>
-<hr/>
+<p>This force results in acceleration <span class="arithmatex">\(a\)</span>:</p>
+<div class="arithmatex">\[
+a = \frac{F}{m} = \frac{G M}{r^2}
+\]</div>
 <h3 id="orbital-trajectory-classification">Orbital Trajectory Classification</h3>
 <p>The shape of the trajectory depends on <strong>total mechanical energy</strong>:</p>
 <div class="arithmatex">\[
-E = \frac{1}{2}mv^2 - \frac{GMm}{r}
+\varepsilon = \frac{1}{2}mv^2 - \frac{GMm}{r}
 \]</div>
 <table>
 <thead>
@@ -234,6 +244,12 @@ E = \frac{1}{2}mv^2 - \frac{GMm}{r}
 </tbody>
 </table>
 <hr/>
+<h3 id="escape-velocity">Escape Velocity</h3>
+<div class="arithmatex">\[
+v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
+\]</div>
+<p>At Earth's surface (radius ≈ 6371 km), <span class="arithmatex">\(v_{\text{esc}} \approx 11.2 \, \text{km/s}\)</span></p>
+<hr/>
 <h2 id="simulation-setup">Simulation Setup</h2>
 <p>We assume:</p>
 <ul>
@@ -243,85 +259,108 @@ E = \frac{1}{2}mv^2 - \frac{GMm}{r}
 </ul>
 <p>We'll simulate the trajectory of a payload launched from <strong>Earth’s low orbit</strong> with different initial velocities.</p>
 <hr/>
-<h2 id="constants-and-parameters">Constants and Parameters</h2>
+<h2 id="2-python-simulation">2. Python Simulation</h2>
+<p>We’ll use a simple numerical method (Euler or Runge-Kutta) to compute and visualize trajectories.</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
 # Constants
-G = 6.67430e-11       # gravitational constant [m^3 kg^-1 s^-2]
-M = 5.972e24          # mass of Earth [kg]
-R_earth = 6.371e6     # radius of Earth [m]
+G = 6.67430e-11        # Gravitational constant [m^3 kg^-1 s^-2]
+M = 5.972e24           # Earth mass [kg]
+R_earth = 6.371e6      # Earth radius [m]
 
 # Initial conditions
-altitude = 400e3  # 400 km altitude (e.g., ISS orbit)
-r0 = np.array([R_earth + altitude, 0])  # initial position
-</code></pre>
-<hr/>
-<h2 id="numerical-simulation-velocity-variants">Numerical Simulation: Velocity Variants</h2>
-<pre><code class="language-python"># Function for gravitational acceleration
-def gravity(pos):
-    r = np.linalg.norm(pos)
-    return -G * M * pos / r**3
+altitude = 300e3  # 300 km above Earth's surface
+r0 = R_earth + altitude
+v_escape = np.sqrt(2 * G * M / r0)
 
-# Time step and simulation time
-dt = 1  # seconds
-t_max = 6000  # simulate for ~1.5 hours
-steps = int(t_max / dt)
+# Time parameters
+dt = 1.0       # time step [s]
+t_max = 8000   # total time [s]
 
-# Try multiple velocities
-velocities = {
-    "Sub-orbital (&lt; v1)": 7000,
-    "Circular orbit (v1)": np.sqrt(G * M / np.linalg.norm(r0)),
-    "Elliptical (&gt; v1)": 8500,
-    "Escape velocity (v2)": np.sqrt(2 * G * M / np.linalg.norm(r0)),
-    "Hyperbolic (&gt; v2)": 12000
-}
-</code></pre>
-<hr/>
-<h2 id="trajectory-simulation-function">Trajectory Simulation Function</h2>
-<pre><code class="language-python">def simulate_trajectory(v0):
-    pos = r0.copy()
-    vel = np.array([0, v0])
-    traj = [pos.copy()]
+def simulate_trajectory(vx0, vy0):
+    x, y = [r0], [0]
+    vx, vy = [vx0], [vy0]
+    t = [0]
 
-    for _ in range(steps):
-        acc = gravity(pos)
-        vel += acc * dt
-        pos += vel * dt
-        traj.append(pos.copy())
-        if np.linalg.norm(pos) &lt; R_earth:
-            break  # impact with Earth
-    return np.array(traj)
-</code></pre>
-<hr/>
-<h2 id="plotting-all-trajectories">Plotting All Trajectories</h2>
-<pre><code class="language-python">plt.figure(figsize=(8, 8))
+    for _ in range(int(t_max/dt)):
+        r = np.sqrt(x[-1]**2 + y[-1]**2)
+        if r &lt; R_earth:  # Crash condition
+            break
+
+        ax = -G * M * x[-1] / r**3
+        ay = -G * M * y[-1] / r**3
+
+        vx_new = vx[-1] + ax * dt
+        vy_new = vy[-1] + ay * dt
+
+        x_new = x[-1] + vx_new * dt
+        y_new = y[-1] + vy_new * dt
+
+        x.append(x_new)
+        y.append(y_new)
+        vx.append(vx_new)
+        vy.append(vy_new)
+        t.append(t[-1] + dt)
+
+    return x, y, t
+
+# Simulations
+initial_speeds = [7000, 7800, 11200, 12000]  # m/s
+labels = ["Sub-orbital", "Low Earth Orbit", "Escape Velocity", "Hyperbolic Escape"]
+
+plt.figure(figsize=(8,8))
+for v, label in zip(initial_speeds, labels):
+    x, y, _ = simulate_trajectory(0, v)
+    plt.plot(x, y, label=f"{label} ({v/1000:.1f} km/s)")
+
+# Earth boundary
 theta = np.linspace(0, 2*np.pi, 500)
 earth_x = R_earth * np.cos(theta)
 earth_y = R_earth * np.sin(theta)
-plt.plot(earth_x, earth_y, color='blue', label='Earth')
+plt.plot(earth_x, earth_y, 'k', label='Earth')
 
-for label, v0 in velocities.items():
-    traj = simulate_trajectory(v0)
-    plt.plot(traj[:,0], traj[:,1], label=label)
-
-plt.axis('equal')
-plt.xlabel('X position (m)')
-plt.ylabel('Y position (m)')
-plt.title('Trajectories of Released Payloads at 400 km Altitude')
-plt.legend()
+plt.xlabel("x [m]")
+plt.ylabel("y [m]")
+plt.title("Trajectories of Freely Released Payloads")
+plt.axis("equal")
 plt.grid(True)
-plt.tight_layout()
+plt.legend()
 plt.show()
 </code></pre>
+<p>OUTPUT :</p>
+<p><img alt="alt text" src="../image-3.png"/></p>
 <hr/>
 <h2 id="interpretation-of-results">Interpretation of Results</h2>
+<h3 id="1-sub-orbital-trajectory-eg-7000-ms">1. <strong>Sub-Orbital Trajectory (e.g., 7000 m/s)</strong></h3>
 <ul>
-<li><strong>Sub-orbital (v &lt; v1)</strong>: Object falls back to Earth (reentry).</li>
-<li><strong>Circular orbit (v = v1)</strong>: Stable orbit, e.g., ISS.</li>
-<li><strong>Elliptical orbit (v1 &lt; v &lt; v2)</strong>: Payload stays in orbit but with varying altitude.</li>
-<li><strong>Escape velocity (v = v2)</strong>: Object just escapes Earth’s gravity.</li>
-<li><strong>Hyperbolic (v &gt; v2)</strong>: Object enters interplanetary space.</li>
+<li>The payload is released at a velocity <strong>below the orbital speed</strong> required for a stable Low Earth Orbit (LEO).</li>
+<li>The gravitational force dominates and pulls the object back toward Earth.</li>
+<li>This type of trajectory is characteristic of <strong>short missions</strong>, like ballistic missiles or early suborbital spaceflights (e.g., V2 rockets or Alan Shepard's flight).</li>
+<li>The path appears <strong>curved but not closed</strong>, indicating that it doesn’t complete an orbit before reentry.</li>
+</ul>
+<h3 id="2-low-earth-orbit-eg-7800-ms">2. <strong>Low Earth Orbit (e.g., 7800 m/s)</strong></h3>
+<ul>
+<li>At this speed, the payload follows a <strong>stable elliptical orbit</strong>, where the gravitational force provides the necessary centripetal force to maintain its motion.</li>
+<li>This speed is close to the <strong>first cosmic velocity</strong> required for circular or near-circular orbit.</li>
+<li>Common for satellites and the International Space Station.</li>
+<li>The trajectory forms a <strong>closed loop</strong> (an ellipse), confirming it remains bound to Earth.</li>
+</ul>
+<h3 id="3-escape-velocity-11200-ms">3. <strong>Escape Velocity (≈11200 m/s)</strong></h3>
+<ul>
+<li>At this critical velocity, the total mechanical energy of the object becomes zero:</li>
+</ul>
+<p>$$
+  \varepsilon = \frac{v^2}{2} - \frac{GM}{r} = 0
+  $$
+* The payload follows a <strong>parabolic trajectory</strong> and reaches <strong>infinite distance with zero velocity</strong>, in theory.
+* This is the <strong>minimum speed</strong> required to leave Earth’s gravity well <strong>without further propulsion</strong>.
+* Used in mission planning for <strong>interplanetary launches</strong>.</p>
+<h3 id="4-hyperbolic-escape-eg-12000-ms">4. <strong>Hyperbolic Escape (e.g., 12000 m/s)</strong></h3>
+<ul>
+<li>When the initial velocity exceeds escape velocity, the payload follows a <strong>hyperbolic path</strong>.</li>
+<li>The excess energy results in <strong>continued acceleration away from Earth</strong>, assuming no other forces act.</li>
+<li>Such trajectories are used when sending probes to <strong>deep space</strong> or for <strong>gravity assists</strong>.</li>
 </ul>
 <hr/>
 <h2 id="real-world-applications">Real-World Applications</h2>
@@ -355,6 +394,13 @@ plt.show()
 </tr>
 </tbody>
 </table>
+<hr/>
+<h2 id="references">References</h2>
+<ul>
+<li>Newton, I. <em>Philosophiæ Naturalis Principia Mathematica</em>.</li>
+<li>Vallado, D. A. (2001). <em>Fundamentals of Astrodynamics and Applications</em>.</li>
+<li>NASA: Orbital Mechanics Tutorials.</li>
+</ul>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
 <p>By changing the <strong>initial velocity</strong> of a payload released from a moving spacecraft, we can achieve a wide range of <strong>orbital trajectories</strong> — from short-lived suborbital hops to interplanetary escapes. Understanding these dynamics is vital for mission design, space navigation, and satellite deployment.</p>
