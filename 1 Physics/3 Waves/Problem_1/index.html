@@ -66,46 +66,6 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#motivation">🎯 Motivation</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#theoretical-background">🧠 Theoretical Background</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#circular-water-waves-from-a-single-source">📌 Circular Water Waves from a Single Source</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#superposition-principle">📌 Superposition Principle</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#interference-types">📌 Interference Types</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#problem-setup">📐 Problem Setup</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#polygon-selection">➤ Polygon Selection</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#assumptions">➤ Assumptions</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#python-simulation">🧮 Python Simulation</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#graphical-visualization">📊 Graphical Visualization</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#interpretation-of-results">🔍 Interpretation of Results</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#constructive-interference">➤ Constructive Interference</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#destructive-interference">➤ Destructive Interference</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#symmetry">➤ Symmetry</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#effect-of-geometry">➤ Effect of Geometry</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#physical-significance-and-applications">🧠 Physical Significance and Applications</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#conclusion">📦 Conclusion</a>
-</li>
 </ul>
 </li>
 </ul>
@@ -211,45 +171,44 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<p>Thank you! Here's the <strong>full, detailed Markdown document</strong> for your assignment <strong>“Interference Patterns on a Water Surface”</strong>, structured similarly to your first task — including theoretical background, step-by-step analysis, simulation, and interpretation.</p>
+<h1 id="problem-1">Problem 1</h1>
+<h1 id="interference-patterns-on-a-water-surface">Interference Patterns on a Water Surface</h1>
 <hr/>
-<h1 id="interference-patterns-on-a-water-surface">🌊 Interference Patterns on a Water Surface</h1>
-<hr/>
-<h2 id="motivation">🎯 Motivation</h2>
+<h2 id="motivation">Motivation</h2>
 <p>Wave interference is a core phenomenon in wave physics, where two or more wavefronts overlap, resulting in a new wave pattern. On a water surface, this can be beautifully visualized as ripples that either amplify (constructive interference) or diminish (destructive interference) each other.</p>
 <p>Studying interference from multiple coherent sources positioned at the vertices of a regular polygon reveals complex and symmetric wave structures. This offers a concrete example of wave superposition, coherence, and spatial phase relationships. The goal of this investigation is to explore the formation of interference patterns through simulation and visualization, enhancing our understanding of wave dynamics and their real-world applications.</p>
 <hr/>
-<h2 id="theoretical-background">🧠 Theoretical Background</h2>
-<h3 id="circular-water-waves-from-a-single-source">📌 Circular Water Waves from a Single Source</h3>
+<h2 id="theoretical-background">Theoretical Background</h2>
+<h3 id="circular-water-waves-from-a-single-source">Circular Water Waves from a Single Source</h3>
 <p>A circular wave propagating from a point source on a water surface can be described as:</p>
 <div class="arithmatex">\[
 \eta_i(\vec{r}, t) = A \sin(k|\vec{r} - \vec{r}_i| - \omega t + \phi_i)
 \]</div>
 <p>Where:</p>
 <ul>
-<li><span class="arithmatex">\(\eta_i(\vec{r}, t)\)</span>: Displacement at position <span class="arithmatex">\(\vec{r}\)</span> and time <span class="arithmatex">\(t\)</span> due to source <span class="arithmatex">\(i\)</span></li>
+<li><span class="arithmatex">\(\eta_i(\vec{r}, t)\)</span> : Displacement at position <span class="arithmatex">\(\vec{r}\)</span> and time <span class="arithmatex">\(t\)</span> due to source <span class="arithmatex">\(i\)</span></li>
 <li><span class="arithmatex">\(A\)</span>: Amplitude of the wave</li>
-<li><span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span>: Wave number, related to wavelength <span class="arithmatex">\(\lambda\)</span></li>
-<li><span class="arithmatex">\(\omega = 2\pi f\)</span>: Angular frequency, related to frequency <span class="arithmatex">\(f\)</span></li>
-<li><span class="arithmatex">\(|\vec{r} - \vec{r}_i|\)</span>: Distance from the source to the point</li>
-<li><span class="arithmatex">\(\phi_i\)</span>: Initial phase of source <span class="arithmatex">\(i\)</span></li>
+<li><span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span> : Wave number, related to wavelength <span class="arithmatex">\(\lambda\)</span></li>
+<li><span class="arithmatex">\(\omega = 2\pi f\)</span> : Angular frequency, related to frequency <span class="arithmatex">\(f\)</span></li>
+<li><span class="arithmatex">\(|\vec{r} - \vec{r}_i|\)</span> : Distance from the source to the point</li>
+<li><span class="arithmatex">\(\phi_i\)</span> : Initial phase of source <span class="arithmatex">\(i\)</span></li>
 </ul>
-<h3 id="superposition-principle">📌 Superposition Principle</h3>
+<h3 id="superposition-principle">Superposition Principle</h3>
 <p>When multiple wave sources are present, the total displacement at any point on the water surface is the <strong>sum of all individual displacements</strong>:</p>
 <div class="arithmatex">\[
 \eta(\vec{r}, t) = \sum_{i=1}^{N} \eta_i(\vec{r}, t)
 \]</div>
 <p>This is the <strong>principle of superposition</strong>, which governs interference patterns.</p>
-<h3 id="interference-types">📌 Interference Types</h3>
+<h3 id="interference-types">Interference Types</h3>
 <ul>
 <li><strong>Constructive Interference</strong>: Occurs when waves arrive in phase — peaks meet peaks, leading to higher amplitudes.</li>
 <li><strong>Destructive Interference</strong>: Occurs when waves are out of phase — peaks meet troughs, resulting in cancellation.</li>
 </ul>
 <hr/>
-<h2 id="problem-setup">📐 Problem Setup</h2>
-<h3 id="polygon-selection">➤ Polygon Selection</h3>
+<h2 id="problem-setup">Problem Setup</h2>
+<h3 id="polygon-selection">Polygon Selection</h3>
 <p>We choose a <strong>square (4 vertices)</strong> as the base geometry for placing wave sources. This setup allows us to explore symmetrical interference patterns resulting from coherent sources positioned at equal distances.</p>
-<h3 id="assumptions">➤ Assumptions</h3>
+<h3 id="assumptions">Assumptions</h3>
 <ul>
 <li>All sources emit waves of equal amplitude <span class="arithmatex">\(A = 1\)</span>, frequency <span class="arithmatex">\(f = 1\)</span>, and wavelength <span class="arithmatex">\(\lambda = 2\pi\)</span>.</li>
 <li>All sources are coherent: same phase and frequency.</li>
@@ -257,7 +216,7 @@
 <li>Sources are located at the corners of a square centered at the origin.</li>
 </ul>
 <hr/>
-<h2 id="python-simulation">🧮 Python Simulation</h2>
+<h2 id="python-simulation">Python Simulation</h2>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
@@ -302,7 +261,9 @@ plt.grid(True, linestyle='--', alpha=0.3)
 plt.show()
 </code></pre>
 <hr/>
-<h2 id="graphical-visualization">📊 Graphical Visualization</h2>
+<p>OUTPUT:</p>
+<p><img alt="alt text" src="../image.png"/></p>
+<h2 id="graphical-visualization">Graphical Visualization</h2>
 <p>The resulting plot shows:</p>
 <ul>
 <li><strong>Bright regions</strong> where waves constructively interfere (higher amplitude)</li>
@@ -311,18 +272,18 @@ plt.show()
 <li><strong>Fringes</strong> and circular ripple-like structures that radiate from the combined influence of all sources</li>
 </ul>
 <hr/>
-<h2 id="interpretation-of-results">🔍 Interpretation of Results</h2>
+<h2 id="interpretation-of-results">Interpretation of Results</h2>
 <p>The simulation confirms how interference depends heavily on <strong>source arrangement</strong> and <strong>phase relationships</strong>:</p>
-<h3 id="constructive-interference">➤ Constructive Interference</h3>
+<h3 id="-constructive-interference">- Constructive Interference</h3>
 <p>Occurs at points equidistant (or with equal path length difference in integer multiples of the wavelength) from multiple sources. These form <strong>high-intensity bands</strong> in the visualization.</p>
-<h3 id="destructive-interference">➤ Destructive Interference</h3>
+<h3 id="-destructive-interference">- Destructive Interference</h3>
 <p>Occurs where waves cancel each other due to opposite phase arrival, leading to <strong>low or zero displacement</strong> regions.</p>
-<h3 id="symmetry">➤ Symmetry</h3>
+<h3 id="-symmetry">- Symmetry</h3>
 <p>The square configuration leads to <strong>reflectional and rotational symmetry</strong> in the interference pattern. This symmetry helps identify <strong>nodal lines</strong> (where total displacement is zero) and <strong>antinodal lines</strong> (where displacement is maximum).</p>
-<h3 id="effect-of-geometry">➤ Effect of Geometry</h3>
+<h3 id="-effect-of-geometry">- Effect of Geometry</h3>
 <p>If another polygon were chosen (e.g., triangle or pentagon), the interference pattern would change dramatically. The number of lobes, symmetry lines, and nodal spacing depends on both <strong>distance between sources</strong> and <strong>angular separation</strong>.</p>
 <hr/>
-<h2 id="physical-significance-and-applications">🧠 Physical Significance and Applications</h2>
+<h2 id="physical-significance-and-applications">Physical Significance and Applications</h2>
 <p>This simulation and analysis highlight core principles of wave interference, which are applicable in:</p>
 <ul>
 <li><strong>Acoustics</strong>: Design of concert halls, speaker arrays</li>
@@ -332,7 +293,7 @@ plt.show()
 <li><strong>Water wave engineering</strong>: Harbor design, wave reflection and absorption studies</li>
 </ul>
 <hr/>
-<h2 id="conclusion">📦 Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <p>This task demonstrates how <strong>coherent wave sources arranged in a regular pattern</strong> can create rich and predictable interference structures. By leveraging numerical simulations, we can visualize these wave patterns and better understand the spatial and temporal dynamics of wave interactions. This approach provides a strong foundation for exploring more complex interference systems in physics and engineering.</p>
 <hr/>
 </div>
