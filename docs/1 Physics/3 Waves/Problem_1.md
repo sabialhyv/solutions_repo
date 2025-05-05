@@ -1,12 +1,10 @@
-Thank you! Here's the **full, detailed Markdown document** for your assignment **“Interference Patterns on a Water Surface”**, structured similarly to your first task — including theoretical background, step-by-step analysis, simulation, and interpretation.
+# Problem 1
+
+# Interference Patterns on a Water Surface
 
 ---
 
-# 🌊 Interference Patterns on a Water Surface
-
----
-
-## 🎯 Motivation
+## Motivation
 
 Wave interference is a core phenomenon in wave physics, where two or more wavefronts overlap, resulting in a new wave pattern. On a water surface, this can be beautifully visualized as ripples that either amplify (constructive interference) or diminish (destructive interference) each other.
 
@@ -14,9 +12,9 @@ Studying interference from multiple coherent sources positioned at the vertices 
 
 ---
 
-## 🧠 Theoretical Background
+## Theoretical Background
 
-### 📌 Circular Water Waves from a Single Source
+### Circular Water Waves from a Single Source
 
 A circular wave propagating from a point source on a water surface can be described as:
 
@@ -26,14 +24,14 @@ $$
 
 Where:
 
-* $\eta_i(\vec{r}, t)$: Displacement at position $\vec{r}$ and time $t$ due to source $i$
+* $\eta_i(\vec{r}, t)$ : Displacement at position $\vec{r}$ and time $t$ due to source $i$
 * $A$: Amplitude of the wave
-* $k = \frac{2\pi}{\lambda}$: Wave number, related to wavelength $\lambda$
-* $\omega = 2\pi f$: Angular frequency, related to frequency $f$
-* $|\vec{r} - \vec{r}_i|$: Distance from the source to the point
-* $\phi_i$: Initial phase of source $i$
+* $k = \frac{2\pi}{\lambda}$ : Wave number, related to wavelength $\lambda$
+* $\omega = 2\pi f$ : Angular frequency, related to frequency $f$
+* $|\vec{r} - \vec{r}_i|$ : Distance from the source to the point
+* $\phi_i$ : Initial phase of source $i$
 
-### 📌 Superposition Principle
+### Superposition Principle
 
 When multiple wave sources are present, the total displacement at any point on the water surface is the **sum of all individual displacements**:
 
@@ -43,20 +41,20 @@ $$
 
 This is the **principle of superposition**, which governs interference patterns.
 
-### 📌 Interference Types
+### Interference Types
 
 * **Constructive Interference**: Occurs when waves arrive in phase — peaks meet peaks, leading to higher amplitudes.
 * **Destructive Interference**: Occurs when waves are out of phase — peaks meet troughs, resulting in cancellation.
 
 ---
 
-## 📐 Problem Setup
+## Problem Setup
 
-### ➤ Polygon Selection
+### Polygon Selection
 
 We choose a **square (4 vertices)** as the base geometry for placing wave sources. This setup allows us to explore symmetrical interference patterns resulting from coherent sources positioned at equal distances.
 
-### ➤ Assumptions
+### Assumptions
 
 * All sources emit waves of equal amplitude $A = 1$, frequency $f = 1$, and wavelength $\lambda = 2\pi$.
 * All sources are coherent: same phase and frequency.
@@ -65,7 +63,7 @@ We choose a **square (4 vertices)** as the base geometry for placing wave source
 
 ---
 
-## 🧮 Python Simulation
+## Python Simulation
 
 ```python
 import numpy as np
@@ -113,8 +111,11 @@ plt.show()
 ```
 
 ---
+OUTPUT:
 
-## 📊 Graphical Visualization
+![alt text](image.png)
+
+## Graphical Visualization
 
 The resulting plot shows:
 
@@ -125,29 +126,29 @@ The resulting plot shows:
 
 ---
 
-## 🔍 Interpretation of Results
+## Interpretation of Results
 
 The simulation confirms how interference depends heavily on **source arrangement** and **phase relationships**:
 
-### ➤ Constructive Interference
+### - Constructive Interference
 
 Occurs at points equidistant (or with equal path length difference in integer multiples of the wavelength) from multiple sources. These form **high-intensity bands** in the visualization.
 
-### ➤ Destructive Interference
+### - Destructive Interference
 
 Occurs where waves cancel each other due to opposite phase arrival, leading to **low or zero displacement** regions.
 
-### ➤ Symmetry
+### - Symmetry
 
 The square configuration leads to **reflectional and rotational symmetry** in the interference pattern. This symmetry helps identify **nodal lines** (where total displacement is zero) and **antinodal lines** (where displacement is maximum).
 
-### ➤ Effect of Geometry
+### - Effect of Geometry
 
 If another polygon were chosen (e.g., triangle or pentagon), the interference pattern would change dramatically. The number of lobes, symmetry lines, and nodal spacing depends on both **distance between sources** and **angular separation**.
 
 ---
 
-## 🧠 Physical Significance and Applications
+## Physical Significance and Applications
 
 This simulation and analysis highlight core principles of wave interference, which are applicable in:
 
@@ -159,7 +160,7 @@ This simulation and analysis highlight core principles of wave interference, whi
 
 ---
 
-## 📦 Conclusion
+## Conclusion
 
 This task demonstrates how **coherent wave sources arranged in a regular pattern** can create rich and predictable interference structures. By leveraging numerical simulations, we can visualize these wave patterns and better understand the spatial and temporal dynamics of wave interactions. This approach provides a strong foundation for exploring more complex interference systems in physics and engineering.
 
