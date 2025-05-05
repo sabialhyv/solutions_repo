@@ -152,7 +152,7 @@ plt.show()
 
 ---
 
-## 📊 Interpretation of Results
+## Interpretation of Results
 
 - **Sub-orbital (v < v1)**: Object falls back to Earth (reentry).
 - **Circular orbit (v = v1)**: Stable orbit, e.g., ISS.
@@ -162,7 +162,7 @@ plt.show()
 
 ---
 
-## 🧠 Real-World Applications
+## Real-World Applications
 
 | Trajectory Type | Mission Example |
 |-----------------|-----------------|
@@ -174,14 +174,9 @@ plt.show()
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 By changing the **initial velocity** of a payload released from a moving spacecraft, we can achieve a wide range of **orbital trajectories** — from short-lived suborbital hops to interplanetary escapes. Understanding these dynamics is vital for mission design, space navigation, and satellite deployment.
 
 The combination of **gravitational physics** and **numerical simulation** allows us to visualize and predict these complex motions in space.
 
-```
-
----
-
-İstersen bu çalışmayı `.ipynb`, `.md`, veya `.pdf` dosyası olarak sana verebilirim. Bir sonraki ödevini de aynı şekilde göndermek istersen, sadece paylaşman yeterli! Hazırım 🚀
