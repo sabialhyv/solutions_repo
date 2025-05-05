@@ -18,7 +18,7 @@ Depending on the initial conditions, the payload may enter a closed orbit, crash
 
 ---
 
-## Theoretical Background
+## 1. Theoretical Background
 
 ### Newton's Law of Universal Gravitation
 The gravitational force acting on a payload of mass 𝑚 near Earth of mass 𝑀 is:
@@ -38,7 +38,7 @@ Where:
 This force results in acceleration $a$:
 
 $$
-a = \frac{F}{m} = \frac{G M}{r^2}
+a = \frac{F}{m} - \frac{G M}{r^2}
 $$
 
 
@@ -50,6 +50,7 @@ $$
 \varepsilon = \frac{1}{2}mv^2 - \frac{GMm}{r}
 $$
 
+---
 
 | Trajectory Type | Total Energy \(E\)| Eccentricity \(e\) |
 |-----------------|--------------------|---------------------|
@@ -59,6 +60,20 @@ $$
 | Hyperbolic      | \(> 0\)            | \(e > 1\)           |
 
 ---
+
+✔️Note :
+Both symbols ($\varepsilon$ and **$E$**) are used in physics, but **the context matters**:
+
+#### In orbital mechanics and astrodynamics:
+
+* **$\varepsilon$** (Greek letter *epsilon*) is commonly used to denote the **specific mechanical energy**, which is **mechanical energy per unit mass**:  $\varepsilon$   Units: J/kg
+
+#### If you're referring to **total mechanical energy** (not per unit mass):
+* Then **$E$** is used:
+Units: J (joules)
+
+---
+
 ### Escape Velocity
 
 $$
@@ -69,7 +84,7 @@ At Earth's surface (radius ≈ 6371 km), $v_{\text{esc}} \approx 11.2 \, \text{k
 
 ---
 
-## Simulation Setup
+## 2. Simulation Setup
 
 We assume:
 
@@ -81,7 +96,7 @@ We'll simulate the trajectory of a payload launched from **Earth’s low orbit**
 
 ---
 
-## 2. Python Simulation
+## 3. Python Simulation
 
 We’ll use a simple numerical method (Euler or Runge-Kutta) to compute and visualize trajectories.
 
@@ -159,7 +174,7 @@ OUTPUT :
 
 ---
 
-## Interpretation of Results
+## 4. Interpretation of Results
 
 ### 1. **Sub-Orbital Trajectory (e.g., 7000 m/s)**
 
@@ -194,7 +209,7 @@ OUTPUT :
 
 ---
 
-## Real-World Applications
+## 5. Real-World Applications
 
 | Trajectory Type | Mission Example |
 |-----------------|-----------------|
@@ -206,7 +221,7 @@ OUTPUT :
 
 ---
 
-## References
+## 6. References
 
 * Newton, I. *Philosophiæ Naturalis Principia Mathematica*.
 * Vallado, D. A. (2001). *Fundamentals of Astrodynamics and Applications*.
