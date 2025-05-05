@@ -70,6 +70,7 @@ In orbital mechanics and astrodynamics:
 * Units: J/kg
 
 If you're referring to **total mechanical energy** (not per unit mass):
+
 * Then **$E$** is used
 * Units: J (joules)
 
