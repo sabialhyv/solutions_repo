@@ -64,13 +64,14 @@ $$
 ✔️Note :
 Both symbols ($\varepsilon$ and **$E$**) are used in physics, but **the context matters**:
 
-#### In orbital mechanics and astrodynamics:
+In orbital mechanics and astrodynamics:
 
-* **$\varepsilon$** (Greek letter *epsilon*) is commonly used to denote the **specific mechanical energy**, which is **mechanical energy per unit mass**:  $\varepsilon$   Units: J/kg
+* **$\varepsilon$** (Greek letter *epsilon*) is commonly used to denote the **specific mechanical energy**, which is **mechanical energy per unit mass**:  $\varepsilon$   
+* Units: J/kg
 
-#### If you're referring to **total mechanical energy** (not per unit mass):
-* Then **$E$** is used:
-Units: J (joules)
+If you're referring to **total mechanical energy** (not per unit mass):
+* Then **$E$** is used
+* Units: J (joules)
 
 ---
 
@@ -197,6 +198,7 @@ OUTPUT :
   $$
   \varepsilon = \frac{v^2}{2} - \frac{GM}{r} = 0
   $$
+
 * The payload follows a **parabolic trajectory** and reaches **infinite distance with zero velocity**, in theory.
 * This is the **minimum speed** required to leave Earth’s gravity well **without further propulsion**.
 * Used in mission planning for **interplanetary launches**.
