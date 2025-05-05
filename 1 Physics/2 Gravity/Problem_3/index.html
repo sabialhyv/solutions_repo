@@ -189,7 +189,7 @@
 </ul>
 <p>Depending on the initial conditions, the payload may enter a closed orbit, crash back to Earth, or escape Earth’s gravitational field. Understanding these motions is crucial for real-world space missions like satellite deployment, orbital transfers, space probes, reentry planning, and escape maneuvers.</p>
 <hr/>
-<h2 id="theoretical-background">Theoretical Background</h2>
+<h2 id="1-theoretical-background">1. Theoretical Background</h2>
 <h3 id="newtons-law-of-universal-gravitation">Newton's Law of Universal Gravitation</h3>
 <p>The gravitational force acting on a payload of mass 𝑚 near Earth of mass 𝑀 is:</p>
 <div class="arithmatex">\[
@@ -205,13 +205,14 @@ F = \frac{G M m}{r^2}
 </ul>
 <p>This force results in acceleration <span class="arithmatex">\(a\)</span>:</p>
 <div class="arithmatex">\[
-a = \frac{F}{m} = \frac{G M}{r^2}
+a = \frac{F}{m} - \frac{G M}{r^2}
 \]</div>
 <h3 id="orbital-trajectory-classification">Orbital Trajectory Classification</h3>
 <p>The shape of the trajectory depends on <strong>total mechanical energy</strong>:</p>
 <div class="arithmatex">\[
 \varepsilon = \frac{1}{2}mv^2 - \frac{GMm}{r}
 \]</div>
+<hr/>
 <table>
 <thead>
 <tr>
@@ -244,13 +245,25 @@ a = \frac{F}{m} = \frac{G M}{r^2}
 </tbody>
 </table>
 <hr/>
+<p>✔️Note :
+Both symbols (<span class="arithmatex">\(\varepsilon\)</span> and <strong><span class="arithmatex">\(E\)</span></strong>) are used in physics, but <strong>the context matters</strong>:</p>
+<h4 id="in-orbital-mechanics-and-astrodynamics">In orbital mechanics and astrodynamics:</h4>
+<ul>
+<li><strong><span class="arithmatex">\(\varepsilon\)</span></strong> (Greek letter <em>epsilon</em>) is commonly used to denote the <strong>specific mechanical energy</strong>, which is <strong>mechanical energy per unit mass</strong>:  <span class="arithmatex">\(\varepsilon\)</span>   Units: J/kg</li>
+</ul>
+<h4 id="if-youre-referring-to-total-mechanical-energy-not-per-unit-mass">If you're referring to <strong>total mechanical energy</strong> (not per unit mass):</h4>
+<ul>
+<li>Then <strong><span class="arithmatex">\(E\)</span></strong> is used:
+Units: J (joules)</li>
+</ul>
+<hr/>
 <h3 id="escape-velocity">Escape Velocity</h3>
 <div class="arithmatex">\[
 v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
 \]</div>
 <p>At Earth's surface (radius ≈ 6371 km), <span class="arithmatex">\(v_{\text{esc}} \approx 11.2 \, \text{km/s}\)</span></p>
 <hr/>
-<h2 id="simulation-setup">Simulation Setup</h2>
+<h2 id="2-simulation-setup">2. Simulation Setup</h2>
 <p>We assume:</p>
 <ul>
 <li>2D motion in a plane</li>
@@ -259,7 +272,7 @@ v_{\text{esc}} = \sqrt{\frac{2GM}{r}}
 </ul>
 <p>We'll simulate the trajectory of a payload launched from <strong>Earth’s low orbit</strong> with different initial velocities.</p>
 <hr/>
-<h2 id="2-python-simulation">2. Python Simulation</h2>
+<h2 id="3-python-simulation">3. Python Simulation</h2>
 <p>We’ll use a simple numerical method (Euler or Runge-Kutta) to compute and visualize trajectories.</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
@@ -331,7 +344,7 @@ plt.show()
 <p>OUTPUT :</p>
 <p><img alt="alt text" src="../image-3.png"/></p>
 <hr/>
-<h2 id="interpretation-of-results">Interpretation of Results</h2>
+<h2 id="4-interpretation-of-results">4. Interpretation of Results</h2>
 <h3 id="1-sub-orbital-trajectory-eg-7000-ms">1. <strong>Sub-Orbital Trajectory (e.g., 7000 m/s)</strong></h3>
 <ul>
 <li>The payload is released at a velocity <strong>below the orbital speed</strong> required for a stable Low Earth Orbit (LEO).</li>
@@ -363,7 +376,7 @@ plt.show()
 <li>Such trajectories are used when sending probes to <strong>deep space</strong> or for <strong>gravity assists</strong>.</li>
 </ul>
 <hr/>
-<h2 id="real-world-applications">Real-World Applications</h2>
+<h2 id="5-real-world-applications">5. Real-World Applications</h2>
 <table>
 <thead>
 <tr>
@@ -395,7 +408,7 @@ plt.show()
 </tbody>
 </table>
 <hr/>
-<h2 id="references">References</h2>
+<h2 id="6-references">6. References</h2>
 <ul>
 <li>Newton, I. <em>Philosophiæ Naturalis Principia Mathematica</em>.</li>
 <li>Vallado, D. A. (2001). <em>Fundamentals of Astrodynamics and Applications</em>.</li>
