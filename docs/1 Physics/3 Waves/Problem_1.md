@@ -12,7 +12,7 @@ Studying interference from multiple coherent sources positioned at the vertices 
 
 ---
 
-## Theoretical Background
+## 1. Theoretical Background
 
 ### Circular Water Waves from a Single Source
 
@@ -48,7 +48,7 @@ This is the **principle of superposition**, which governs interference patterns.
 
 ---
 
-## Problem Setup
+## 2. Problem Setup
 
 ### Polygon Selection
 
@@ -63,7 +63,7 @@ We choose a **square (4 vertices)** as the base geometry for placing wave source
 
 ---
 
-## Python Simulation
+## 3. Python Simulation
 
 ```python
 import numpy as np
@@ -115,7 +115,7 @@ OUTPUT:
 
 ![alt text](image.png)
 
-## Graphical Visualization
+## 4. Graphical Visualization
 
 The resulting plot shows:
 
@@ -126,7 +126,7 @@ The resulting plot shows:
 
 ---
 
-## Interpretation of Results
+## 5. Interpretation of Results
 
 The simulation confirms how interference depends heavily on **source arrangement** and **phase relationships**:
 
@@ -148,7 +148,7 @@ If another polygon were chosen (e.g., triangle or pentagon), the interference pa
 
 ---
 
-## Physical Significance and Applications
+## 6. Physical Significance and Applications
 
 This simulation and analysis highlight core principles of wave interference, which are applicable in:
 
