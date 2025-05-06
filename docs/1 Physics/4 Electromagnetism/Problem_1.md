@@ -98,7 +98,7 @@ OUTPUT :
 
 ---
 
-⚠️ Note:
+### ⚠️ Note:
 
 The initial velocity of 1e6 m/s (1,000,000 m/s) is quite large and results in a very fast, tightly curved motion. If we would like to slow down the particle and make the trajectory easier to observe, we can reduce this value.
 
