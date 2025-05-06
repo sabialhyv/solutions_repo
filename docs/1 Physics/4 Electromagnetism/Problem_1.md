@@ -138,6 +138,7 @@ With these changes:
   $$
 
 * **If** $\vec{B} = (0, 0, B_z)$ **and** $\vec{E} = 0$, **then:**
+
   - The **x** and **y** motion is circular (due to Lorentz force).
   - The **z** motion is unaffected → constant speed.
 
