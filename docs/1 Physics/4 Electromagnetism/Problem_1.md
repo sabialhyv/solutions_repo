@@ -136,10 +136,12 @@ With these changes:
   $$
   \vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
   $$
-* If $\vec{B} = (0, 0, B_z)$ and $\vec{E} = 0$, then:
+
+If $\vec{B} = (0, 0, B_z)$ and $\vec{E} = 0$, then:
 
   * The **x** and **y** motion is circular (due to Lorentz force).
   * The **z** motion is unaffected → constant speed.
+
 * Result: **helix** if $v_z \neq 0$
 ---
 
