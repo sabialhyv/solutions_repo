@@ -1,14 +1,10 @@
 # Problem 1
 
-Here's a complete, merged version of your project on **Simulating the Effects of the Lorentz Force**, including the theoretical background, Python simulation, visualizations, and conclusion. You can copy-paste this into a Jupyter notebook or Markdown document.
+#  Simulating the Effects of the Lorentz Force
 
 ---
 
-# 🧲 Simulating the Effects of the Lorentz Force
-
----
-
-## 🔎 Motivation
+## Motivation
 
 The Lorentz force describes how charged particles behave when subjected to electric and magnetic fields. This force is foundational in numerous areas of physics and engineering, including:
 
@@ -27,35 +23,35 @@ Simulating this force helps visualize complex motion like helical paths and elec
 
 ---
 
-## 🧪 1. Exploration of Applications
+## 1. Exploration of Applications
 
-### ⚙️ Key Systems
+### Key Systems
 
 * **Cyclotrons:** Magnetic fields bend particle paths; electric fields accelerate them.
 * **Mass Spectrometers:** Magnetic fields deflect particles based on their charge-to-mass ratio.
 * **Fusion Reactors (Tokamaks):** Charged plasma is confined using toroidal magnetic fields.
 * **Cathode Ray Tubes:** Magnetic deflection steers electron beams.
 
-### 🌐 Field Interactions
+### Field Interactions
 
-* **Electric Field $\vec{E}$:** Changes particle speed (linear acceleration).
-* **Magnetic Field $\vec{B}$:** Changes direction via circular or helical motion. Does no work.
+* **Electric Field $\vec{E}$ :** Changes particle speed (linear acceleration).
+* **Magnetic Field $\vec{B}$ :** Changes direction via circular or helical motion. Does no work.
 
 ---
 
-## 🔁 2. Simulating Particle Motion
+## 2. Simulating Particle Motion
 
 We solve Newton’s second law with the Lorentz force:
 
 $$
-m \frac{d\vec{v}}{dt} = q(\vec{E} + \vec{v} \times \vec{B}), \quad \frac{d\vec{r}}{dt} = \vec{v}
+m \frac{d\vec{v}}{dt} = q(\vec{E} + \vec{v} \times \vec{B}),  \quad \frac{d\vec{r}}{dt} = \vec{v}
 $$
 
 We'll use the **Euler method** for numerical integration.
 
 ---
 
-### 📟 Python Simulation (Uniform Magnetic Field)
+### Python Simulation (Uniform Magnetic Field)
 #### 2D version
 ```python
 import numpy as np
@@ -147,13 +143,13 @@ OUTPUT :
 
 ---
 
-## ⚙️ 3. Parameter Exploration
+## 3. Parameter Exploration
 
 Try modifying the following:
 
-* **Electric Field:** `E = np.array([1e3, 0, 0])`
-* **Initial Velocity Direction:** `v[0] = np.array([0, 1e6, 0])`
-* **Particle Type (Proton):** `m = 1.67e-27`, `q = 1.6e-19`
+* **Electric Field :** `E = np.array([1e3, 0, 0])`
+* **Initial Velocity Direction :** `v[0] = np.array([0, 1e6, 0])`
+* **Particle Type (Proton) :** `m = 1.67e-27`, `q = 1.6e-19`
 
 You can also compute:
 
@@ -162,11 +158,13 @@ You can also compute:
   $$
   r_L = \frac{mv_\perp}{|q|B}
   $$
+
 * **Cyclotron Frequency:**
 
   $$
   \omega_c = \frac{|q|B}{m}
   $$
+
 * **E×B Drift Velocity:**
 
   $$
@@ -175,17 +173,7 @@ You can also compute:
 
 ---
 
-## 📈 4. Visualization
-
-The simulation above visualizes the particle’s helical motion in a magnetic field. You can extend this to:
-
-* **2D motion (XY plane)** for pure circular paths.
-* **3D motion** for combined axial + perpendicular velocity.
-* Use `matplotlib.quiver` to add vector field diagrams.
-
----
-
-## 📘 Conclusion
+## Conclusion
 
 Through this simulation, we've visualized how charged particles move under electromagnetic forces. Key observations include:
 
