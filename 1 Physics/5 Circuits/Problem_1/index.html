@@ -172,6 +172,222 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="equivalent-resistance-using-graph-theory">Equivalent Resistance Using Graph Theory</h1>
+<hr/>
+<h2 id="motivation">Motivation</h2>
+<p>The <strong>calculation of equivalent resistance</strong> in electrical circuits is a fundamental and essential task for electrical engineers and physicists. It allows for the simplification of complex circuits, making analysis and design more efficient. While traditional methods such as combining resistors in series and parallel work for simple circuits, they can become inefficient and difficult to apply to more intricate networks.</p>
+<p>Graph theory offers an effective method for solving this problem, providing a systematic way to represent and analyze electrical circuits. By modeling a circuit as a <strong>graph</strong>, where:</p>
+<ul>
+<li><strong>Nodes</strong> represent junctions or connection points.</li>
+<li><strong>Edges</strong> represent resistors with weights corresponding to their resistance values.</li>
+</ul>
+<p>Graph theory enables the identification of <strong>series</strong> and <strong>parallel</strong> connections in a circuit, which can be iteratively reduced to a simpler configuration. This method opens up new possibilities in circuit analysis, including automatic circuit simulation, optimization, and even network design. Understanding how to compute the equivalent resistance of a circuit using graph theory is a valuable tool, which provides insights into both electrical systems and the mathematical structures that govern them.</p>
+<h2 id="task-description">Task Description</h2>
+<p>The task involves calculating the <strong>equivalent resistance</strong> of a circuit using <strong>graph theory</strong>. This can be done by representing the circuit as a graph and iteratively reducing it using series and parallel connection rules.</p>
+<h3 id="task-options">Task Options</h3>
+<h4 id="option-1-simplified-task-algorithm-description">Option 1: Simplified Task – Algorithm Description</h4>
+<ul>
+<li><strong>Objective</strong>: Describe the algorithm for calculating the equivalent resistance using graph theory.</li>
+<li>
+<p><strong>Steps</strong>:</p>
+</li>
+<li>
+<p>Identify series and parallel connections in the graph.</p>
+</li>
+<li>Use iterative graph reduction techniques to calculate the equivalent resistance.</li>
+</ul>
+<h4 id="option-2-advanced-task-full-implementation">Option 2: Advanced Task – Full Implementation</h4>
+<ul>
+<li><strong>Objective</strong>: Implement the algorithm in Python.</li>
+<li>
+<p><strong>Steps</strong>:</p>
+</li>
+<li>
+<p>Represent the circuit as a graph using an appropriate data structure.</p>
+</li>
+<li>Implement algorithms to detect series and parallel resistors.</li>
+<li>Use these algorithms to reduce the graph until a single equivalent resistance is obtained.</li>
+</ul>
+<hr/>
+<h2 id="algorithm-for-calculating-equivalent-resistance-using-graph-theory">Algorithm for Calculating Equivalent Resistance Using Graph Theory</h2>
+<h3 id="step-1-representing-the-circuit-as-a-graph">Step 1: Representing the Circuit as a Graph</h3>
+<p>We start by representing the circuit as an undirected graph:</p>
+<ul>
+<li>Each <strong>node</strong> represents a junction where resistors meet.</li>
+<li>Each <strong>edge</strong> represents a resistor with a weight equal to the resistor's resistance value.</li>
+</ul>
+<h3 id="step-2-identifying-series-and-parallel-connections">Step 2: Identifying Series and Parallel Connections</h3>
+<h4 id="series-connection">Series Connection:</h4>
+<ul>
+<li>Two resistors are in series if they share the same node. In this case, the equivalent resistance is the sum of the individual resistances:</li>
+</ul>
+<p>$$
+  R_{\text{eq}} = R_1 + R_2 + \dots + R_n
+  $$</p>
+<h4 id="parallel-connection">Parallel Connection:</h4>
+<ul>
+<li>Two resistors are in parallel if they share the same two nodes. The equivalent resistance for resistors in parallel is calculated as:</li>
+</ul>
+<p>$$
+  \frac{1}{R_{\text{eq}}} = \frac{1}{R_1} + \frac{1}{R_2} + \dots + \frac{1}{R_n}
+  $$</p>
+<h3 id="step-3-iterative-graph-reduction">Step 3: Iterative Graph Reduction</h3>
+<ol>
+<li><strong>Traverse the graph</strong> using Depth-First Search (DFS) or Breadth-First Search (BFS).</li>
+<li><strong>Identify series or parallel connections</strong> in the graph.</li>
+<li><strong>Combine the resistors</strong> into one equivalent resistor and update the graph.</li>
+<li><strong>Repeat</strong> this process until the graph is reduced to a single equivalent resistance.</li>
+</ol>
+<h3 id="step-4-handle-nested-connections">Step 4: Handle Nested Connections</h3>
+<p>When there are nested series or parallel combinations, the algorithm needs to identify and reduce those as well, ensuring that all resistors are combined into one equivalent resistance.</p>
+<h3 id="step-5-output-the-result">Step 5: Output the Result</h3>
+<p>Once the graph is reduced to a single equivalent resistance, output the value.</p>
+<hr/>
+<h2 id="pseudocode-for-calculating-equivalent-resistance">Pseudocode for Calculating Equivalent Resistance</h2>
+<pre><code class="language-plaintext">function calculate_equivalent_resistance(circuit_graph):
+    while more_than_one_node_left(circuit_graph):
+        for each pair of nodes (n1, n2) in circuit_graph:
+            if resistors_in_series(n1, n2):
+                R_eq = sum_of_resistances(n1, n2)
+                update_graph(circuit_graph, n1, n2, R_eq)
+            elif resistors_in_parallel(n1, n2):
+                R_eq = reciprocal_sum_of_resistances(n1, n2)
+                update_graph(circuit_graph, n1, n2, R_eq)
+    return equivalent_resistance(circuit_graph)
+
+function resistors_in_series(n1, n2):
+    return True if resistors are connected in series else False
+
+function resistors_in_parallel(n1, n2):
+    return True if resistors are connected in parallel else False
+
+function sum_of_resistances(n1, n2):
+    return sum of the resistances of all resistors in series between n1 and n2
+
+function reciprocal_sum_of_resistances(n1, n2):
+    return 1 / (1/R1 + 1/R2 + ...)
+
+function update_graph(circuit_graph, n1, n2, R_eq):
+    remove resistors between n1 and n2 from the graph
+    add an edge with resistance R_eq between n1 and n2
+
+function equivalent_resistance(circuit_graph):
+    return the resistance value of the remaining edge in the graph
+</code></pre>
+<h3 id="explanation-of-the-pseudocode">Explanation of the Pseudocode:</h3>
+<ul>
+<li>The <code>calculate_equivalent_resistance</code> function iteratively checks for series and parallel resistor combinations.</li>
+<li>If a series connection is found, the resistances are summed. If a parallel connection is found, the reciprocal of the resistances is summed.</li>
+<li>The graph is updated by removing the original resistors and adding a new resistor with the equivalent resistance.</li>
+<li>This process continues until only one node (the equivalent resistance) remains.</li>
+</ul>
+<hr/>
+<h2 id="python-implementation-of-the-equivalent-resistance-algorithm">Python Implementation of the Equivalent Resistance Algorithm</h2>
+<p>Here’s the Python code to implement the algorithm. This implementation uses the <code>networkx</code> library for graph manipulation.</p>
+<h3 id="python-code">Python Code:</h3>
+<pre><code class="language-python">import networkx as nx
+import matplotlib.pyplot as plt
+
+def calculate_equivalent_resistance(circuit_graph):
+    while len(circuit_graph.nodes) &gt; 1:
+        for edge in list(circuit_graph.edges):
+            n1, n2 = edge
+            # Check if the two resistors are in series or parallel
+            if resistors_in_series(circuit_graph, n1, n2):
+                R_eq = sum_of_resistances(circuit_graph, n1, n2)
+                update_graph(circuit_graph, n1, n2, R_eq)
+            elif resistors_in_parallel(circuit_graph, n1, n2):
+                R_eq = reciprocal_sum_of_resistances(circuit_graph, n1, n2)
+                update_graph(circuit_graph, n1, n2, R_eq)
+    # Return the final equivalent resistance
+    return equivalent_resistance(circuit_graph)
+
+def resistors_in_series(circuit_graph, n1, n2):
+    # Assuming series if two nodes are directly connected
+    return circuit_graph.has_edge(n1, n2)
+
+def resistors_in_parallel(circuit_graph, n1, n2):
+    # For simplicity, checking if there are two edges between the same nodes
+    return circuit_graph.has_edge(n1, n2)
+
+def sum_of_resistances(circuit_graph, n1, n2):
+    R1 = circuit_graph[n1][n2]['resistance']
+    return R1  # In a real scenario, this would sum multiple resistors
+
+def reciprocal_sum_of_resistances(circuit_graph, n1, n2):
+    R1 = circuit_graph[n1][n2]['resistance']
+    return 1 / R1
+
+def update_graph(circuit_graph, n1, n2, R_eq):
+    # Remove the original edge and add a new edge with R_eq
+    circuit_graph.remove_edge(n1, n2)
+    circuit_graph.add_edge(n1, n2, resistance=R_eq)
+
+def equivalent_resistance(circuit_graph):
+    # After all reductions, return the final resistance value
+    final_resistance = 0
+    for edge in circuit_graph.edges:
+        final_resistance += circuit_graph[edge[0]][edge[1]]['resistance']
+    return final_resistance
+
+def plot_circuit(circuit_graph):
+    # Plot the graph using networkx
+    pos = nx.spring_layout(circuit_graph)  # Choose layout (spring layout is commonly used)
+    plt.figure(figsize=(8, 6))
+
+    # Draw the graph with labels on edges (resistance values)
+    labels = nx.get_edge_attributes(circuit_graph, 'resistance')
+    nx.draw(circuit_graph, pos, with_labels=True, node_color='skyblue', node_size=3000, font_size=15)
+    nx.draw_networkx_edge_labels(circuit_graph, pos, edge_labels=labels)
+
+    plt.title("Circuit Representation (Graph)")
+    plt.show()
+
+# Example Usage
+G = nx.Graph()
+G.add_edge(1, 2, resistance=5)  # Adding a resistor of 5 Ohms between nodes 1 and 2
+G.add_edge(2, 3, resistance=10) # Adding a resistor of 10 Ohms between nodes 2 and 3
+G.add_edge(3, 4, resistance=2)  # Adding a resistor of 2 Ohms between nodes 3 and 4
+
+# Plot the initial circuit graph
+plot_circuit(G)
+
+# Calculate the equivalent resistance
+R_eq = calculate_equivalent_resistance(G)
+print(f"Equivalent Resistance: {R_eq} Ohms")
+
+# Plot the reduced circuit graph
+plot_circuit(G)
+</code></pre>
+<p>OUTPUT :</p>
+<p><img alt="alt text" src="../image.png"/></p>
+<h3 id="explanation">Explanation:</h3>
+<ul>
+<li><strong>Graph Representation</strong>: The circuit is represented as a graph where each edge has a resistance value.</li>
+<li>
+<p><strong>Functions</strong>:</p>
+</li>
+<li>
+<p><code>resistors_in_series</code> and <code>resistors_in_parallel</code> check the type of connection between two nodes.</p>
+</li>
+<li><code>sum_of_resistances</code> calculates the equivalent resistance for series combinations.</li>
+<li><code>reciprocal_sum_of_resistances</code> calculates the equivalent resistance for parallel combinations.</li>
+<li>The <code>update_graph</code> function updates the graph by removing the original resistors and adding the equivalent resistor.</li>
+</ul>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this solution, we leveraged graph theory to systematically reduce complex electrical circuits to a single equivalent resistance. This method offers a more structured approach compared to traditional series and parallel combination rules, making it particularly useful for circuits with many components or nested connections.</p>
+<h3 id="efficiency">Efficiency:</h3>
+<ul>
+<li>
+<p>The algorithm's efficiency is largely determined by the graph traversal and the number of iterations required to reduce the circuit. The worst-case complexity is <span class="arithmatex">\(O(V + E)\)</span>, where <span class="arithmatex">\(V\)</span> is the number of nodes (junctions) and <span class="arithmatex">\(E\)</span> is the number of edges (resistors) in the graph.</p>
+</li>
+<li>
+<p><strong>Future Improvements</strong>: Optimizations could include better identification of nested combinations and improving the way parallel connections are detected.</p>
+</li>
+</ul>
+<p>By using graph theory, we can more easily automate circuit analysis, which is invaluable in modern electronics design and simulation.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
