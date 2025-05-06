@@ -100,15 +100,12 @@ OUTPUT :
 
 ### ⚠️ Note:
 
-The initial velocity of 1e6 m/s (1,000,000 m/s) is quite large and results in a very fast, tightly curved motion. If we would like to slow down the particle and make the trajectory easier to observe, we can reduce this value.
-
+The initial velocity of `1e6 m/s` (1,000,000 m/s) is quite large and results in a very fast, tightly curved motion. If you'd like to **slow down the particle** and make the trajectory easier to observe, we can reduce this value.
 Try setting the initial velocity to a moderate value, such as:
 
-Yes, absolutely — the initial velocity of `1e6 m/s` (1,000,000 m/s) is quite large and results in a very fast, tightly curved motion. If you'd like to **slow down the particle** and make the trajectory easier to observe, you can reduce this value.
+Try setting the initial velocity to a **moderate value**, such as:
 
 ✅ Recommended Adjustment:
-
-Try setting the initial velocity to a **moderate value**, such as:
 
 ```python
 import numpy as np
