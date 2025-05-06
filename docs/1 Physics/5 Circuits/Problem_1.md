@@ -213,6 +213,16 @@ OUTPUT :
 
 ![alt text](image.png)
 
+### Output:
+
+* The **first plot** shows the initial circuit with resistors between the nodes.
+* The **second plot** shows the reduced circuit after combining series or parallel resistors, demonstrating how the circuit simplifies to a single equivalent resistance.
+
+This plot will show a simple line graph where nodes 1, 2, 3, and 4 are connected with resistors of values 5, 10, and 2 Ohms.
+
+**Reduced Circuit (After Calculations):**
+After calculating the equivalent resistance, the plot will show the reduced circuit with fewer nodes and edges as some resistors are combined into equivalent resistances.
+
 ### Explanation:
 
 * **Graph Representation**: The circuit is represented as a graph where each edge has a resistance value.
@@ -223,7 +233,12 @@ OUTPUT :
   * `reciprocal_sum_of_resistances` calculates the equivalent resistance for parallel combinations.
   * The `update_graph` function updates the graph by removing the original resistors and adding the equivalent resistor.
 
----
+
+### Key Additions for Visualization:
+
+1. **plot\_circuit**: A function that uses `networkx` to plot the graph of the circuit. It uses a spring layout to organize the nodes and edges.
+2. **Edge Labels**: The resistances of the edges (resistors) are shown as labels on the graph using `nx.draw_networkx_edge_labels`.
+3. **Before and After Calculation**: The circuit graph is plotted before and after the equivalent resistance calculation to show how the graph changes during the reduction process.
 
 ## Conclusion
 
