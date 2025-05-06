@@ -43,12 +43,12 @@ Example:
 
 - The vertical position:
 
-$$ y(t)=v0sin⁡(θ)⋅t−12gt2y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2}gt^2  $$
+$$ y(t)=v_0sin⁡(θ)⋅t−12gt2y(t) = v_0 \sin(\theta) \cdot t - \frac{1}{2}gt^2  $$
 (Here t is changing continuously)
 
 - But to find when the projectile lands, we solve for the total time → that’s when we use T:
 
-$$ T=2v0sin⁡(θ)gT = \frac{2v_0 \sin(\theta)}{g} $$
+$$ T=2v_0sin⁡(θ)gT = \frac{2v_0 \sin(\theta)}{g} $$
 
 
 Symbol	Meaning
