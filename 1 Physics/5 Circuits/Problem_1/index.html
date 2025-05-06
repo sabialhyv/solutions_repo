@@ -361,6 +361,14 @@ plot_circuit(G)
 </code></pre>
 <p>OUTPUT :</p>
 <p><img alt="alt text" src="../image.png"/></p>
+<h3 id="output">Output:</h3>
+<ul>
+<li>The <strong>first plot</strong> shows the initial circuit with resistors between the nodes.</li>
+<li>The <strong>second plot</strong> shows the reduced circuit after combining series or parallel resistors, demonstrating how the circuit simplifies to a single equivalent resistance.</li>
+</ul>
+<p>This plot will show a simple line graph where nodes 1, 2, 3, and 4 are connected with resistors of values 5, 10, and 2 Ohms.</p>
+<p><strong>Reduced Circuit (After Calculations):</strong>
+After calculating the equivalent resistance, the plot will show the reduced circuit with fewer nodes and edges as some resistors are combined into equivalent resistances.</p>
 <h3 id="explanation">Explanation:</h3>
 <ul>
 <li><strong>Graph Representation</strong>: The circuit is represented as a graph where each edge has a resistance value.</li>
@@ -374,7 +382,12 @@ plot_circuit(G)
 <li><code>reciprocal_sum_of_resistances</code> calculates the equivalent resistance for parallel combinations.</li>
 <li>The <code>update_graph</code> function updates the graph by removing the original resistors and adding the equivalent resistor.</li>
 </ul>
-<hr/>
+<h3 id="key-additions-for-visualization">Key Additions for Visualization:</h3>
+<ol>
+<li><strong>plot_circuit</strong>: A function that uses <code>networkx</code> to plot the graph of the circuit. It uses a spring layout to organize the nodes and edges.</li>
+<li><strong>Edge Labels</strong>: The resistances of the edges (resistors) are shown as labels on the graph using <code>nx.draw_networkx_edge_labels</code>.</li>
+<li><strong>Before and After Calculation</strong>: The circuit graph is plotted before and after the equivalent resistance calculation to show how the graph changes during the reduction process.</li>
+</ol>
 <h2 id="conclusion">Conclusion</h2>
 <p>In this solution, we leveraged graph theory to systematically reduce complex electrical circuits to a single equivalent resistance. This method offers a more structured approach compared to traditional series and parallel combination rules, making it particularly useful for circuits with many components or nested connections.</p>
 <h3 id="efficiency">Efficiency:</h3>
