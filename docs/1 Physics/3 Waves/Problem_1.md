@@ -61,8 +61,6 @@ We choose a **square (4 vertices)** as the base geometry for placing wave source
 * Initial time is fixed at $t = 0$ for a static snapshot.
 * Sources are located at the corners of a square centered at the origin.
 
-Anladım! Kendi yazdığın bölümlere **dokunmadan**, yalnızca yeni beşgen (5 kaynaklı) simülasyonu **uygun biçimde entegre edip** devamını ekliyorum. Her şey İngilizce olacak ve yapısal uyuma dikkat edeceğim.
-
 ---
 
 ### 2.1 Extended Geometry: Pentagon Configuration
