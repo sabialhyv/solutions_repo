@@ -53,27 +53,31 @@ We'll use the **Euler method** for numerical integration.
 
 ### Python Simulation (Uniform Magnetic Field)
 #### 2D version
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Constants
-q = 1.6e-19         # Charge (C)
-m = 9.11e-31        # Mass (kg)
-Bz = 1              # Magnetic field in z-direction (T)
-Ex, Ey = 0, 0       # Electric field components (V/m)
+# Constants (scaled for visualization)
+q = 1       # Arbitrary charge
+m = 1       # Arbitrary mass
+Bz = 1      # Magnetic field (T)
+Ex, Ey = 0, 0  # Electric fields
 
-# Simulation parameters
-dt = 1e-11          # Time step (s)
-steps = 1000        # Number of steps
+# Initial velocity
+v0 = 10     # m/s
+
+# Time parameters
+dt = 1e-3
+steps = 2000
 
 # Initial conditions
 r = np.zeros((steps, 2))  # [x, y]
 v = np.zeros((steps, 2))  # [vx, vy]
 r[0] = [0, 0]
-v[0] = [1e6, 0]  # Initial velocity in X only
+v[0] = [v0, 0]
 
-# Euler Integration
+# Euler integration
 for i in range(steps - 1):
     vx, vy = v[i]
     Fx = q * (Ex + vy * Bz)
@@ -82,160 +86,115 @@ for i in range(steps - 1):
     v[i+1] = v[i] + dt * np.array([ax, ay])
     r[i+1] = r[i] + dt * v[i]
 
-# Plot trajectory
+# Theoretical radius
+radius = m * v0 / (q * Bz)
+
+# Circle for comparison
+theta = np.linspace(0, 2 * np.pi, 500)
+circle_x = radius * np.cos(theta)
+circle_y = radius * np.sin(theta)
+
+# Plotting
 plt.figure(figsize=(8, 6))
-plt.plot(r[:, 0], r[:, 1])
-plt.title("2D Motion of Charged Particle in Uniform Magnetic Field (Z-direction)")
+plt.plot(r[:, 0], r[:, 1], label='Simulated Trajectory')
+plt.plot(circle_x, circle_y, 'r--', label=f'Theoretical Circle (r = {radius:.2f} m)')
+plt.title("Circular Motion of a Charged Particle in Uniform Magnetic Field")
 plt.xlabel("X position (m)")
 plt.ylabel("Y position (m)")
 plt.grid(True)
 plt.axis('equal')
-plt.show()
-
-```
-OUTPUT : 
-![alt text](image.png)
-
----
-
-### ⚠️ Note:
-
-The initial velocity of `1e6 m/s` (1,000,000 m/s) is quite large and results in a very fast, tightly curved motion. If you'd like to **slow down the particle** and make the trajectory easier to observe, we can reduce this value.
-Try setting the initial velocity to a moderate value, such as:
-
-Try setting the initial velocity to a **moderate value**, such as:
-
-✅ Recommended Adjustment:
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Constants
-q = 1.6e-19         # Charge (C)
-m = 9.11e-31        # Mass (kg)
-Bz = 1              # Magnetic field in z-direction (T)
-Ex, Ey = 0, 0       # Electric field components (V/m)
-
-# Simulation parameters
-dt = 1e-12          # Time step (s) - slower for better resolution
-steps = 3000        # Increased steps for better trajectory visualization
-
-# Initial conditions
-r = np.zeros((steps, 2))  # [x, y]
-v = np.zeros((steps, 2))  # [vx, vy]
-r[0] = [0, 0]
-v[0] = [1e4, 0]  # Reduced initial velocity in X (10,000 m/s) - change this to test
-
-# Euler Integration
-for i in range(steps - 1):
-    vx, vy = v[i]
-    Fx = q * (Ex + vy * Bz)
-    Fy = q * (Ey - vx * Bz)
-    ax, ay = Fx / m, Fy / m
-    v[i+1] = v[i] + dt * np.array([ax, ay])
-    r[i+1] = r[i] + dt * v[i]
-
-# Plot trajectory
-plt.figure(figsize=(8, 6))
-plt.plot(r[:, 0], r[:, 1])
-plt.title("2D Motion of Charged Particle in Uniform Magnetic Field (Z-direction)")
-plt.xlabel("X position (m)")
-plt.ylabel("Y position (m)")
-plt.xlim(-0.05, 0.05)  # Adjust x-axis limits for better visibility
-plt.ylim(-0.05, 0.05)  # Adjust y-axis limits for better visibility
-plt.grid(True)
-plt.axis('equal')
+plt.legend()
 plt.show()
 ```
 
 OUTPUT : 
-![alt text](image-2.png)
+![alt text](image-3.png)
 
-In a 2D simulation, especially with a relatively small number of steps and a fixed time step, it can be hard to visually distinguish between large and reduced initial velocities because the trajectory might be too compressed, or the time step might not be fine enough to see the effects of the change.
+### ✅ Result:
 
-To better visualize the difference between a large and reduced initial velocity in the **2D version**, we need to make a few adjustments:
+With these changes:
 
-**1. Increase the number of steps (to give more time for the particle to travel)**
+* The motion should appear clearly **circular** (as expected from the Lorentz force).
+* The radius depends on initial velocity, charge, mass, and magnetic field:
 
-**2. Adjust the plot's axes limits for a clearer view of the trajectory**
+  $$
+  r = \frac{mv}{qB}
+  $$
 
-**3. Use a slower time step** if needed to increase the resolution of motion.
+### What we will see:
 
-### Key Changes:
+* **Blue solid line**: Simulated path of the particle (should appear circular).
+* **Red dashed circle**: Theoretical perfect circle based on $r = \frac{mv}{qB}$.
 
-1. **Time Step (`dt`) Adjusted:** The time step is decreased to `1e-12` to give the particle more time to move in each step and create a smoother path.
-2. **Number of Steps Increased:** The number of steps has been increased to `3000` to give more time for the particle's motion to be captured, so the difference between high and low velocities will be more noticeable.
-3. **Adjusted Axes Limits:** The `xlim` and `ylim` parameters were set to limits that will make the motion more visible on the plot. You can adjust these further depending on the particle's path.
-
----
-
-### **Visualizing Large vs. Reduced Velocity:**
-
-To visually compare the **large initial velocity** with the **reduced initial velocity**, you can:
-
-* Run the simulation twice: first with `v[0] = [1e6, 0]` (large velocity) and second with `v[0] = [1e4, 0]` (reduced velocity).
-* Plot both on the same graph or use subplots to compare the differences.
-
----
-
-This will:
-
-* Make the **cyclotron radius smaller** (since radius ∝ velocity)
-* Produce a **tighter and clearer spiral or circular path**
-* Keep the simulation stable (especially at your time step of `1e-11 s`)
-
-If the velocity is **too small** (e.g., `1e2`), the particle might barely move during the simulated time. We can balance this by:
-
-* Adjusting the number of steps (e.g., increase to `2000`)
-* Or increasing the time step slightly (e.g., `dt = 5e-11`), if needed — just keep in mind that too large a `dt` can reduce accuracy.
-
----
 
 #### 3D version
+
+##### Physical Idea:
+
+* Lorentz force:
+
+  $$
+  \vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
+  $$
+* If $\vec{B} = (0, 0, B_z)$ and $\vec{E} = 0$, then:
+
+  * The **x** and **y** motion is circular (due to Lorentz force).
+  * The **z** motion is unaffected → constant speed.
+* Result: **helix** if $v_z \neq 0$
+---
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# Constants
-q = 1.6e-19         # Charge (C)
-m = 9.11e-31        # Mass (kg) - electron
-B = np.array([0, 0, 1])  # Uniform magnetic field (T)
-E = np.array([0, 0, 0])  # No electric field
+# Constants (scaled for visualization)
+q = 1       # Arbitrary charge
+m = 1       # Arbitrary mass
+B = np.array([0, 0, 1])  # Uniform magnetic field in z-direction
+E = np.array([0, 0, 0])  # Electric field (can change)
 
-# Simulation parameters
-dt = 1e-11          # Time step (s)
-steps = 1000        # Number of time steps
-t = np.linspace(0, dt*steps, steps)
+# Time parameters
+dt = 1e-3
+steps = 2000
 
 # Initial conditions
-v = np.zeros((steps, 3))
-r = np.zeros((steps, 3))
-v[0] = np.array([1e6, 0, 1e6])  # Initial velocity (m/s)
-r[0] = np.array([0, 0, 0])      # Initial position
+r = np.zeros((steps, 3))  # [x, y, z]
+v = np.zeros((steps, 3))  # [vx, vy, vz]
+r[0] = [0, 0, 0]
+v[0] = [10, 0, 2]  # vx, vy, vz (z=2 m/s to see helix)
 
-# Euler integration loop
+# Euler integration
 for i in range(steps - 1):
-    F = q * (E + np.cross(v[i], B))
+    v_cross_B = np.cross(v[i], B)
+    F = q * (E + v_cross_B)
     a = F / m
-    v[i+1] = v[i] + a * dt
-    r[i+1] = r[i] + v[i] * dt
+    v[i+1] = v[i] + dt * a
+    r[i+1] = r[i] + dt * v[i]
 
-# 3D trajectory plot
-fig = plt.figure(figsize=(10, 6))
+# Plotting the 3D trajectory
+fig = plt.figure(figsize=(10, 7))
 ax = fig.add_subplot(111, projection='3d')
-ax.plot(r[:,0], r[:,1], r[:,2], lw=2)
-ax.set_xlabel('X (m)')
-ax.set_ylabel('Y (m)')
-ax.set_zlabel('Z (m)')
-ax.set_title('Particle Trajectory in Uniform Magnetic Field')
+ax.plot(r[:, 0], r[:, 1], r[:, 2], label='Helical Trajectory', color='blue')
+ax.set_title('3D Motion of Charged Particle in Uniform Magnetic Field')
+ax.set_xlabel('X position (m)')
+ax.set_ylabel('Y position (m)')
+ax.set_zlabel('Z position (m)')
+ax.legend()
 plt.tight_layout()
 plt.show()
 ```
-OUTPUT :
 
-![alt text](image-1.png)
+OUTPUT : 
+
+![alt text](image-4.png)
+
+---
+
+### What we will see:
+
+* A **spiral (helix)** path going upward in the z-direction.
+* The circular motion in XY plane + uniform motion in Z = helix.
 
 ---
 
