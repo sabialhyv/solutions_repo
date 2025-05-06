@@ -61,6 +61,90 @@ We choose a **square (4 vertices)** as the base geometry for placing wave source
 * Initial time is fixed at $t = 0$ for a static snapshot.
 * Sources are located at the corners of a square centered at the origin.
 
+Anladım! Kendi yazdığın bölümlere **dokunmadan**, yalnızca yeni beşgen (5 kaynaklı) simülasyonu **uygun biçimde entegre edip** devamını ekliyorum. Her şey İngilizce olacak ve yapısal uyuma dikkat edeceğim.
+
+---
+
+### 2.1 Extended Geometry: Pentagon Configuration
+
+To further investigate the influence of source geometry on interference patterns, we extend our study to include a **regular pentagon** — five coherent point sources placed at equal angular intervals on a circle. This setup introduces additional symmetry and complexity, allowing us to observe how increasing the number of sources alters the spatial distribution of interference.
+
+### Assumptions (Same as Before)
+
+* All sources emit waves with equal amplitude $A = 1$, frequency $f = 1$, and wavelength $\lambda = 2\pi$.
+* All sources are coherent: same phase and frequency.
+* Time is fixed at $t = 0$ for a static visualization.
+* Sources are located at the vertices of a regular pentagon centered at the origin.
+
+---
+
+### 2.2 Python Simulation: Pentagon Configuration
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Wave parameters
+A = 1
+wavelength = 2 * np.pi
+k = 2 * np.pi / wavelength
+f = 1
+omega = 2 * np.pi * f
+t = 0
+
+# Grid setup
+x = np.linspace(-10, 10, 500)
+y = np.linspace(-10, 10, 500)
+X, Y = np.meshgrid(x, y)
+eta_total = np.zeros_like(X)
+
+# Function to calculate regular polygon vertex positions
+def regular_polygon_vertices(n, radius=5):
+    angles = np.linspace(0, 2 * np.pi, n, endpoint=False)
+    return [(radius * np.cos(a), radius * np.sin(a)) for a in angles]
+
+# Pentagon vertices
+positions = regular_polygon_vertices(5)
+
+# Superposition of waves
+for (xi, yi) in positions:
+    R = np.sqrt((X - xi)**2 + (Y - yi)**2)
+    eta = A * np.sin(k * R - omega * t)
+    eta_total += eta
+
+# Plot
+plt.figure(figsize=(8, 6))
+plt.contourf(X, Y, eta_total, levels=150, cmap='plasma')
+plt.colorbar(label='Displacement η(x, y)')
+plt.title('Interference Pattern from 5 Coherent Point Sources (Pentagon Configuration)')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.axis('equal')
+plt.grid(True, linestyle='--', alpha=0.3)
+plt.show()
+```
+
+OUTPUT :
+![alt text](image-1.png)
+
+---
+
+### 2.3 Visualization and Comparison
+
+The plot from the pentagon configuration reveals a more intricate and radially symmetric interference pattern compared to the square configuration. The addition of a fifth source results in increased fringe density and introduces **five-fold rotational symmetry**. Regions of constructive and destructive interference form petal-like structures, which are characteristic of odd-numbered polygonal arrangements.
+
+---
+
+### 2.4 Observations from the Pentagon Geometry
+
+* **Rotational Symmetry**: The pattern exhibits symmetry about the center, with five repeating lobes.
+* **Increased Complexity**: As the number of sources increases, the interference structure becomes denser and more intricate.
+* **Sharper Transitions**: Compared to the square, the pentagon configuration has more rapid amplitude transitions, especially near the center.
+
+---
+
+This extension supports the idea that **source geometry directly impacts the resulting interference pattern**, and pentagon-based arrangements introduce a new level of spatial intricacy. It also encourages further exploration with other polygons such as triangles, hexagons, or even random configurations for more diverse pattern generation.
+
 ---
 
 ## 3. Python Simulation
