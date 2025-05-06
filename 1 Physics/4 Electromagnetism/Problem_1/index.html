@@ -172,11 +172,9 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>Here's a complete, merged version of your project on <strong>Simulating the Effects of the Lorentz Force</strong>, including the theoretical background, Python simulation, visualizations, and conclusion. You can copy-paste this into a Jupyter notebook or Markdown document.</p>
+<h1 id="simulating-the-effects-of-the-lorentz-force">Simulating the Effects of the Lorentz Force</h1>
 <hr/>
-<h1 id="simulating-the-effects-of-the-lorentz-force">🧲 Simulating the Effects of the Lorentz Force</h1>
-<hr/>
-<h2 id="motivation">🔎 Motivation</h2>
+<h2 id="motivation">Motivation</h2>
 <p>The Lorentz force describes how charged particles behave when subjected to electric and magnetic fields. This force is foundational in numerous areas of physics and engineering, including:</p>
 <ul>
 <li><strong>Particle accelerators</strong> (e.g., cyclotrons, synchrotrons)</li>
@@ -190,28 +188,28 @@
 \]</div>
 <p>Simulating this force helps visualize complex motion like helical paths and electromagnetic drifts. It also provides intuition about how fields are used to control particles in real systems.</p>
 <hr/>
-<h2 id="1-exploration-of-applications">🧪 1. Exploration of Applications</h2>
-<h3 id="key-systems">⚙️ Key Systems</h3>
+<h2 id="1-exploration-of-applications">1. Exploration of Applications</h2>
+<h3 id="key-systems">Key Systems</h3>
 <ul>
 <li><strong>Cyclotrons:</strong> Magnetic fields bend particle paths; electric fields accelerate them.</li>
 <li><strong>Mass Spectrometers:</strong> Magnetic fields deflect particles based on their charge-to-mass ratio.</li>
 <li><strong>Fusion Reactors (Tokamaks):</strong> Charged plasma is confined using toroidal magnetic fields.</li>
 <li><strong>Cathode Ray Tubes:</strong> Magnetic deflection steers electron beams.</li>
 </ul>
-<h3 id="field-interactions">🌐 Field Interactions</h3>
+<h3 id="field-interactions">Field Interactions</h3>
 <ul>
-<li><strong>Electric Field <span class="arithmatex">\(\vec{E}\)</span>:</strong> Changes particle speed (linear acceleration).</li>
-<li><strong>Magnetic Field <span class="arithmatex">\(\vec{B}\)</span>:</strong> Changes direction via circular or helical motion. Does no work.</li>
+<li><strong>Electric Field <span class="arithmatex">\(\vec{E}\)</span> :</strong> Changes particle speed (linear acceleration).</li>
+<li><strong>Magnetic Field <span class="arithmatex">\(\vec{B}\)</span> :</strong> Changes direction via circular or helical motion. Does no work.</li>
 </ul>
 <hr/>
-<h2 id="2-simulating-particle-motion">🔁 2. Simulating Particle Motion</h2>
+<h2 id="2-simulating-particle-motion">2. Simulating Particle Motion</h2>
 <p>We solve Newton’s second law with the Lorentz force:</p>
 <div class="arithmatex">\[
-m \frac{d\vec{v}}{dt} = q(\vec{E} + \vec{v} \times \vec{B}), \quad \frac{d\vec{r}}{dt} = \vec{v}
+m \frac{d\vec{v}}{dt} = q(\vec{E} + \vec{v} \times \vec{B}),  \quad \frac{d\vec{r}}{dt} = \vec{v}
 \]</div>
 <p>We'll use the <strong>Euler method</strong> for numerical integration.</p>
 <hr/>
-<h3 id="python-simulation-uniform-magnetic-field">📟 Python Simulation (Uniform Magnetic Field)</h3>
+<h3 id="python-simulation-uniform-magnetic-field">Python Simulation (Uniform Magnetic Field)</h3>
 <h4 id="2d-version">2D version</h4>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
@@ -297,12 +295,12 @@ plt.show()
 <p>OUTPUT :</p>
 <p><img alt="alt text" src="../image-1.png"/></p>
 <hr/>
-<h2 id="3-parameter-exploration">⚙️ 3. Parameter Exploration</h2>
+<h2 id="3-parameter-exploration">3. Parameter Exploration</h2>
 <p>Try modifying the following:</p>
 <ul>
-<li><strong>Electric Field:</strong> <code>E = np.array([1e3, 0, 0])</code></li>
-<li><strong>Initial Velocity Direction:</strong> <code>v[0] = np.array([0, 1e6, 0])</code></li>
-<li><strong>Particle Type (Proton):</strong> <code>m = 1.67e-27</code>, <code>q = 1.6e-19</code></li>
+<li><strong>Electric Field :</strong> <code>E = np.array([1e3, 0, 0])</code></li>
+<li><strong>Initial Velocity Direction :</strong> <code>v[0] = np.array([0, 1e6, 0])</code></li>
+<li><strong>Particle Type (Proton) :</strong> <code>m = 1.67e-27</code>, <code>q = 1.6e-19</code></li>
 </ul>
 <p>You can also compute:</p>
 <ul>
@@ -310,25 +308,21 @@ plt.show()
 </ul>
 <p>$$
   r_L = \frac{mv_\perp}{|q|B}
-  $$
-* <strong>Cyclotron Frequency:</strong></p>
+  $$</p>
+<ul>
+<li><strong>Cyclotron Frequency:</strong></li>
+</ul>
 <p>$$
   \omega_c = \frac{|q|B}{m}
-  $$
-* <strong>E×B Drift Velocity:</strong></p>
+  $$</p>
+<ul>
+<li><strong>E×B Drift Velocity:</strong></li>
+</ul>
 <p>$$
   \vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}
   $$</p>
 <hr/>
-<h2 id="4-visualization">📈 4. Visualization</h2>
-<p>The simulation above visualizes the particle’s helical motion in a magnetic field. You can extend this to:</p>
-<ul>
-<li><strong>2D motion (XY plane)</strong> for pure circular paths.</li>
-<li><strong>3D motion</strong> for combined axial + perpendicular velocity.</li>
-<li>Use <code>matplotlib.quiver</code> to add vector field diagrams.</li>
-</ul>
-<hr/>
-<h2 id="conclusion">📘 Conclusion</h2>
+<h2 id="conclusion">Conclusion</h2>
 <p>Through this simulation, we've visualized how charged particles move under electromagnetic forces. Key observations include:</p>
 <ul>
 <li><strong>Circular or helical motion</strong> in a magnetic field.</li>
