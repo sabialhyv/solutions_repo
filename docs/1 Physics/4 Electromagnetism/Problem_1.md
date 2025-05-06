@@ -96,6 +96,105 @@ plt.show()
 OUTPUT : 
 ![alt text](image.png)
 
+---
+
+⚠️ Note:
+
+The initial velocity of 1e6 m/s (1,000,000 m/s) is quite large and results in a very fast, tightly curved motion. If we would like to slow down the particle and make the trajectory easier to observe, we can reduce this value.
+
+Try setting the initial velocity to a moderate value, such as:
+
+Yes, absolutely — the initial velocity of `1e6 m/s` (1,000,000 m/s) is quite large and results in a very fast, tightly curved motion. If you'd like to **slow down the particle** and make the trajectory easier to observe, you can reduce this value.
+
+✅ Recommended Adjustment:
+
+Try setting the initial velocity to a **moderate value**, such as:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+q = 1.6e-19         # Charge (C)
+m = 9.11e-31        # Mass (kg)
+Bz = 1              # Magnetic field in z-direction (T)
+Ex, Ey = 0, 0       # Electric field components (V/m)
+
+# Simulation parameters
+dt = 1e-12          # Time step (s) - slower for better resolution
+steps = 3000        # Increased steps for better trajectory visualization
+
+# Initial conditions
+r = np.zeros((steps, 2))  # [x, y]
+v = np.zeros((steps, 2))  # [vx, vy]
+r[0] = [0, 0]
+v[0] = [1e4, 0]  # Reduced initial velocity in X (10,000 m/s) - change this to test
+
+# Euler Integration
+for i in range(steps - 1):
+    vx, vy = v[i]
+    Fx = q * (Ex + vy * Bz)
+    Fy = q * (Ey - vx * Bz)
+    ax, ay = Fx / m, Fy / m
+    v[i+1] = v[i] + dt * np.array([ax, ay])
+    r[i+1] = r[i] + dt * v[i]
+
+# Plot trajectory
+plt.figure(figsize=(8, 6))
+plt.plot(r[:, 0], r[:, 1])
+plt.title("2D Motion of Charged Particle in Uniform Magnetic Field (Z-direction)")
+plt.xlabel("X position (m)")
+plt.ylabel("Y position (m)")
+plt.xlim(-0.05, 0.05)  # Adjust x-axis limits for better visibility
+plt.ylim(-0.05, 0.05)  # Adjust y-axis limits for better visibility
+plt.grid(True)
+plt.axis('equal')
+plt.show()
+```
+
+OUTPUT : 
+![alt text](image-2.png)
+
+In a 2D simulation, especially with a relatively small number of steps and a fixed time step, it can be hard to visually distinguish between large and reduced initial velocities because the trajectory might be too compressed, or the time step might not be fine enough to see the effects of the change.
+
+To better visualize the difference between a large and reduced initial velocity in the **2D version**, we need to make a few adjustments:
+
+**1. Increase the number of steps (to give more time for the particle to travel)**
+
+**2. Adjust the plot's axes limits for a clearer view of the trajectory**
+
+**3. Use a slower time step** if needed to increase the resolution of motion.
+
+### Key Changes:
+
+1. **Time Step (`dt`) Adjusted:** The time step is decreased to `1e-12` to give the particle more time to move in each step and create a smoother path.
+2. **Number of Steps Increased:** The number of steps has been increased to `3000` to give more time for the particle's motion to be captured, so the difference between high and low velocities will be more noticeable.
+3. **Adjusted Axes Limits:** The `xlim` and `ylim` parameters were set to limits that will make the motion more visible on the plot. You can adjust these further depending on the particle's path.
+
+---
+
+### **Visualizing Large vs. Reduced Velocity:**
+
+To visually compare the **large initial velocity** with the **reduced initial velocity**, you can:
+
+* Run the simulation twice: first with `v[0] = [1e6, 0]` (large velocity) and second with `v[0] = [1e4, 0]` (reduced velocity).
+* Plot both on the same graph or use subplots to compare the differences.
+
+---
+
+This will:
+
+* Make the **cyclotron radius smaller** (since radius ∝ velocity)
+* Produce a **tighter and clearer spiral or circular path**
+* Keep the simulation stable (especially at your time step of `1e-11 s`)
+
+If the velocity is **too small** (e.g., `1e2`), the particle might barely move during the simulated time. We can balance this by:
+
+* Adjusting the number of steps (e.g., increase to `2000`)
+* Or increasing the time step slightly (e.g., `dt = 5e-11`), if needed — just keep in mind that too large a `dt` can reduce accuracy.
+
+---
+
 #### 3D version
 ```python
 import numpy as np
