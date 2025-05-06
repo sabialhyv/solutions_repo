@@ -56,7 +56,51 @@ We'll use the **Euler method** for numerical integration.
 ---
 
 ### 📟 Python Simulation (Uniform Magnetic Field)
+#### 2D version
+```python
+import numpy as np
+import matplotlib.pyplot as plt
 
+# Constants
+q = 1.6e-19         # Charge (C)
+m = 9.11e-31        # Mass (kg)
+Bz = 1              # Magnetic field in z-direction (T)
+Ex, Ey = 0, 0       # Electric field components (V/m)
+
+# Simulation parameters
+dt = 1e-11          # Time step (s)
+steps = 1000        # Number of steps
+
+# Initial conditions
+r = np.zeros((steps, 2))  # [x, y]
+v = np.zeros((steps, 2))  # [vx, vy]
+r[0] = [0, 0]
+v[0] = [1e6, 0]  # Initial velocity in X only
+
+# Euler Integration
+for i in range(steps - 1):
+    vx, vy = v[i]
+    Fx = q * (Ex + vy * Bz)
+    Fy = q * (Ey - vx * Bz)
+    ax, ay = Fx / m, Fy / m
+    v[i+1] = v[i] + dt * np.array([ax, ay])
+    r[i+1] = r[i] + dt * v[i]
+
+# Plot trajectory
+plt.figure(figsize=(8, 6))
+plt.plot(r[:, 0], r[:, 1])
+plt.title("2D Motion of Charged Particle in Uniform Magnetic Field (Z-direction)")
+plt.xlabel("X position (m)")
+plt.ylabel("Y position (m)")
+plt.grid(True)
+plt.axis('equal')
+plt.show()
+
+```
+OUTPUT : 
+![alt text](image.png)
+
+#### 3D version
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -97,6 +141,9 @@ ax.set_title('Particle Trajectory in Uniform Magnetic Field')
 plt.tight_layout()
 plt.show()
 ```
+OUTPUT :
+
+![alt text](image-1.png)
 
 ---
 
