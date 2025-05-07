@@ -121,6 +121,10 @@ plt.tight_layout()
 plt.show()
 ```
 
+**OUTPUT :**
+
+
+
 ---
 
 ### Analysis
