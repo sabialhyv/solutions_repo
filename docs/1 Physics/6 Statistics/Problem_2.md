@@ -133,14 +133,14 @@ plt.show()
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 
 This project demonstrated two classical Monte Carlo techniques for estimating π:
 
 * The **circle method** is intuitive, fast, and visually satisfying. It converges relatively quickly and is well-suited for introducing Monte Carlo principles.
 * **Buffon’s Needle** is a beautiful historical method rooted in geometric probability. Although slower to converge and more sensitive to small sample sizes, it reveals the surprising link between π and randomness in geometry.
 
-### 🔑 Key Takeaways:
+### Key Takeaways:
 
 * Both methods highlight how **random sampling** can be used to estimate deterministic constants.
 * Monte Carlo simulations show a tradeoff between **simplicity** and **convergence rate**.
