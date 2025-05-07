@@ -137,11 +137,20 @@ plt.ylabel("Standard Deviation of Sample Mean")
 plt.grid(True)
 plt.show()
 ```
-OUTPUT :
+### OUTPUT :
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
+- **Uniform Distribution**
+
+![alt text](image-13.png)
+
+- **Exponential Distribution**
+
+![alt text](image-14.png)
+
+- **Binomial Distribution**
+
+![alt text](image-15.png)
+
 ---
 
 ## Task 4: Real-World Applications of CLT
