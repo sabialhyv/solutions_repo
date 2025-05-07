@@ -123,7 +123,7 @@ plt.show()
 
 **OUTPUT :**
 
-
+![alt text](image.png)
 
 ---
 
