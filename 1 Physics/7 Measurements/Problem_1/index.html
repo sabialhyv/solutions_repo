@@ -108,6 +108,8 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#analysis">Analysis</a>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#analysis_1">Analysis</a>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="#deliverables">Deliverables</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a>
@@ -299,16 +301,49 @@ plt.show()
 <p><img alt="alt text" src="../image.png"/></p>
 <hr/>
 <h3 id="analysis">Analysis</h3>
-<h4 id="1-compare-measured-g-to-accepted-value">1. Compare Measured <span class="arithmatex">\(g\)</span> to Accepted Value:</h4>
+<p>You're right—thank you for pointing that out. While the structure included an "Analysis" section header, the actual <strong>detailed answers</strong> to the analysis prompts were not explicitly provided. Here's the <strong>completed Analysis section</strong>, answering the required discussion points:</p>
+<hr/>
+<h3 id="analysis_1">Analysis</h3>
+<h4 id="1-compare-your-measured-g-with-the-standard-value-981-ms2">1. <strong>Compare your measured <span class="arithmatex">\(g\)</span> with the standard value (9.81 m/s²):</strong></h4>
+<p>Let’s say your experimentally measured value was:</p>
+<div class="arithmatex">\[
+g = 9.76 \, \text{m/s}^2 \quad \text{with uncertainty } \Delta g = 0.08 \, \text{m/s}^2
+\]</div>
+<p>Then the range of values is:</p>
+<div class="arithmatex">\[
+9.76 \pm 0.08 \Rightarrow [9.68, 9.84] \, \text{m/s}^2
+\]</div>
+<p>The standard value <span class="arithmatex">\(9.81 \, \text{m/s}^2\)</span> falls within this range, so:</p>
+<hr/>
+<h4 id="2-discuss">2. <strong>Discuss:</strong></h4>
+<h5 id="a-the-effect-of-measurement-resolution-on-delta-l">a. <strong>The effect of measurement resolution on <span class="arithmatex">\(\Delta L\)</span>:</strong></h5>
 <ul>
-<li>How close is your measured value to <span class="arithmatex">\(9.81 \, \text{m/s}^2\)</span>?</li>
-<li>Is it within the range of uncertainty?</li>
+<li>The uncertainty <span class="arithmatex">\(\Delta L\)</span> comes from the resolution of your ruler or measuring tape.</li>
+<li>For example, if your tape measures to the nearest 1 mm, then:</li>
 </ul>
-<h4 id="2-discuss">2. Discuss:</h4>
+<p>$$
+  \Delta L = \frac{1 \, \text{mm}}{2} = 0.5 \, \text{mm} = 0.0005 \, \text{m}
+  $$
+* This uncertainty directly affects the final uncertainty in <span class="arithmatex">\(g\)</span>. Since <span class="arithmatex">\(g \propto L\)</span>, the relative uncertainty in <span class="arithmatex">\(L\)</span> contributes linearly to <span class="arithmatex">\(\Delta g\)</span>.
+* A more precise measuring tool (e.g., a digital caliper or laser rangefinder) would reduce <span class="arithmatex">\(\Delta L\)</span>, hence reducing <span class="arithmatex">\(\Delta g\)</span>.</p>
+<hr/>
+<h5 id="b-variability-in-timing-and-its-impact-on-delta-t">b. <strong>Variability in timing and its impact on <span class="arithmatex">\(\Delta T\)</span>:</strong></h5>
 <ul>
-<li><strong>Effect of measurement resolution</strong>: How much did the precision of your measuring tool affect <span class="arithmatex">\(\Delta L\)</span>?</li>
-<li><strong>Timing variability</strong>: Human error and reaction time play a large role in <span class="arithmatex">\(\Delta T\)</span>. Could a sensor improve this?</li>
-<li><strong>Limitations</strong>: Consider angular displacement, air resistance, imperfect pivot, and assumptions of small-angle approximation.</li>
+<li>Human reaction time introduces <strong>random error</strong> in timing.</li>
+<li>Even a 0.2–0.3 s delay can create significant variation when measuring the time for oscillations.</li>
+<li>This variation increases the standard deviation <span class="arithmatex">\(\sigma_T\)</span>, which increases the uncertainty in the period:</li>
+</ul>
+<p>$$
+  \Delta T = \frac{\Delta T_{10}}{10}
+  $$
+* Using a photogate sensor or high-speed video could reduce this uncertainty drastically.</p>
+<hr/>
+<h5 id="c-any-assumptions-or-experimental-limitations">c. <strong>Any assumptions or experimental limitations:</strong></h5>
+<ul>
+<li>Assumed <strong>small-angle approximation</strong>: Only valid for displacements <span class="arithmatex">\(&lt; 15^\circ\)</span>. Larger angles introduce nonlinearity in the period formula.</li>
+<li>Assumed <strong>no air resistance</strong>: But in reality, drag can slightly dampen the motion.</li>
+<li>Assumed <strong>ideal pivot and rigid string</strong>: Any friction at the pivot or elasticity in the string introduces error.</li>
+<li><strong>Mass distribution</strong>: We treat the weight as a point mass, but if it has significant size, its center of mass needs accurate determination.</li>
 </ul>
 <hr/>
 <h3 id="deliverables">Deliverables</h3>
