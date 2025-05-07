@@ -129,16 +129,64 @@ plt.show()
 
 ### Analysis
 
-#### 1. Compare Measured $g$ to Accepted Value:
+You're right—thank you for pointing that out. While the structure included an "Analysis" section header, the actual **detailed answers** to the analysis prompts were not explicitly provided. Here's the **completed Analysis section**, answering the required discussion points:
 
-* How close is your measured value to $9.81 \, \text{m/s}^2$?
-* Is it within the range of uncertainty?
+---
 
-#### 2. Discuss:
+### Analysis
 
-* **Effect of measurement resolution**: How much did the precision of your measuring tool affect $\Delta L$?
-* **Timing variability**: Human error and reaction time play a large role in $\Delta T$. Could a sensor improve this?
-* **Limitations**: Consider angular displacement, air resistance, imperfect pivot, and assumptions of small-angle approximation.
+#### 1. **Compare your measured $g$ with the standard value (9.81 m/s²):**
+
+Let’s say your experimentally measured value was:
+
+$$
+g = 9.76 \, \text{m/s}^2 \quad \text{with uncertainty } \Delta g = 0.08 \, \text{m/s}^2
+$$
+
+Then the range of values is:
+
+$$
+9.76 \pm 0.08 \Rightarrow [9.68, 9.84] \, \text{m/s}^2
+$$
+
+The standard value $9.81 \, \text{m/s}^2$ falls within this range, so:
+
+---
+
+#### 2. **Discuss:**
+
+##### a. **The effect of measurement resolution on $\Delta L$:**
+
+* The uncertainty $\Delta L$ comes from the resolution of your ruler or measuring tape.
+* For example, if your tape measures to the nearest 1 mm, then:
+
+  $$
+  \Delta L = \frac{1 \, \text{mm}}{2} = 0.5 \, \text{mm} = 0.0005 \, \text{m}
+  $$
+* This uncertainty directly affects the final uncertainty in $g$. Since $g \propto L$, the relative uncertainty in $L$ contributes linearly to $\Delta g$.
+* A more precise measuring tool (e.g., a digital caliper or laser rangefinder) would reduce $\Delta L$, hence reducing $\Delta g$.
+
+---
+
+##### b. **Variability in timing and its impact on $\Delta T$:**
+
+* Human reaction time introduces **random error** in timing.
+* Even a 0.2–0.3 s delay can create significant variation when measuring the time for oscillations.
+* This variation increases the standard deviation $\sigma_T$, which increases the uncertainty in the period:
+
+  $$
+  \Delta T = \frac{\Delta T_{10}}{10}
+  $$
+* Using a photogate sensor or high-speed video could reduce this uncertainty drastically.
+
+---
+
+##### c. **Any assumptions or experimental limitations:**
+
+* Assumed **small-angle approximation**: Only valid for displacements $< 15^\circ$. Larger angles introduce nonlinearity in the period formula.
+* Assumed **no air resistance**: But in reality, drag can slightly dampen the motion.
+* Assumed **ideal pivot and rigid string**: Any friction at the pivot or elasticity in the string introduces error.
+* **Mass distribution**: We treat the weight as a point mass, but if it has significant size, its center of mass needs accurate determination.
 
 ---
 
